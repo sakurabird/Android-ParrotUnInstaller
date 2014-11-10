@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- navigation bar -->
+    <string-array name="navigation_group_strings">
+        <item>ホーム</item>
+        <item>お気に入り</item>
+        <item>アンインストール履歴</item>
+        <item>設定</item>
+        <item>ヘルプ</item>
+        <item>並び替え</item>
+        <item>Google Play</item>
+        <item>シェア</item>
+    </string-array>
+
+    <array name="navigation_group_icons">
+        <item>@drawable/inco1</item>
+        <item>@drawable/inco2</item>
+        <item>@drawable/inco3</item>
+        <item>@drawable/inco4</item>
+        <item>@drawable/inco5</item>
+        <item>@drawable/inco6</item>
+        <item>@drawable/inco7</item>
+        <item>@drawable/inco8</item>
+    </array>
+
+    <string-array name="navigation_sort_strings">
+        <item>名前の昇順</item>
+        <item>名前の降順</item>
+        <item>日付の昇順</item>
+        <item>日付の降順</item>
+        <item>サイズの昇順</item>
+        <item>サイズの降順</item>
+    </string-array>
+
+    <!-- setting -->
+    <string-array name="setting_font_size">
+        <item>大</item>
+        <item>中</item>
+        <item>小</item>
+    </string-array>
+    <string-array name="setting_font_size_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="setting_theme">
+        <item>グリーン</item>
+        <item>ピンク</item>
+        <item>青</item>
+        <item>茶色</item>
+        <item>紫</item>
+    </string-array>
+    <string-array name="setting_theme_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>

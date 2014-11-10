@@ -1,0 +1,80 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
+    </style>
+
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- tutorial pager indicator -->
+    <style name="CustomCirclePageIndicator">
+        <item name="fillColor">@color/colorPrimaryDark</item>
+        <item name="unselectedColor">@color/colorPrimary</item>
+        <item name="centered">true</item>
+        <item name="strokeColor">@null</item>
+        <item name="radius">5dp</item>
+        <item name="pageColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- Green Theme -->
+    <style name="MyTheme.Green" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_green</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_green</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Green</item>
+    </style>
+    <style name="PopupMenu.Green" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_green</item>
+    </style>
+
+    <!-- Pink Theme -->
+    <style name="MyTheme.Pink" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_pink</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_pink</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Pink</item>
+    </style>
+    <style name="PopupMenu.Pink" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_pink</item>
+    </style>
+
+    <!-- Blue Theme -->
+    <style name="MyTheme.Blue" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_blue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_blue</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Blue</item>
+    </style>
+    <style name="PopupMenu.Blue" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_blue</item>
+    </style>
+
+    <!-- Brown Theme -->
+    <style name="MyTheme.Brown" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_brown</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_brown</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Brown</item>
+    </style>
+    <style name="PopupMenu.Brown" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_brown</item>
+    </style>
+
+    <!-- Purple Theme -->
+    <style name="MyTheme.Purple" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_purple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_purple</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Purple</item>
+    </style>
+    <style name="PopupMenu.Purple" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_purple</item>
+    </style>
+
+</resources>

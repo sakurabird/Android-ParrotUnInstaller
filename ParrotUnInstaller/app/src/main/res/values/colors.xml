@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- theme -->
+    <color name="colorPrimary">#A9BF7A</color>
+    <color name="colorPrimaryDark">#6B8A4E</color>
+    <color name="textColorPrimary">#ffffff</color>
+    <color name="windowBackground">#ffffff</color>
+
+    <!-- Default color -->
+    <color name="list_background">#11A9BF7A</color>
+    <color name="list_divider">#888</color>
+    <color name="nav_background">#D8D5AF</color>
+    <color name="nav_background_child">#A7BD79</color>
+
+    <!--TODO-->
+    <!-- Green Theme -->
+    <color name="colorPrimary_green">#A9BF7A</color>
+    <color name="colorPrimaryDark_green">#6B8A4E</color>
+    <color name="list_background_green">#11A9BF7A</color>
+    <color name="nav_background_green">#D8D5AF</color>
+    <color name="nav_background_child_green">#A7BD79</color>
+
+    <!-- Pink Theme -->
+    <color name="colorPrimary_pink">#D98B84</color>
+    <color name="colorPrimaryDark_pink">#A66868</color>
+    <color name="list_background_pink">#11D98B84</color>
+    <color name="nav_background_pink">#E3A8A2</color>
+    <color name="nav_background_child_pink">#ccD98B84</color>
+
+    <!-- Blue Theme -->
+    <color name="colorPrimary_blue">#8094A6</color>
+    <color name="colorPrimaryDark_blue">#4C6173</color>
+    <color name="list_background_blue">#F2E9D8</color>
+    <color name="nav_background_blue">#EFFBFF</color>
+    <color name="nav_background_child_blue">#cc8094A6</color>
+
+    <!-- Brown Theme -->
+    <color name="colorPrimary_brown">#A69580</color>
+    <color name="colorPrimaryDark_brown">#8C7961</color>
+    <color name="list_background_brown">#F2E2CE</color>
+    <color name="nav_background_brown">#D9BFA0</color>
+    <color name="nav_background_child_brown">#ccA69580</color>
+
+    <!-- Purple Theme -->
+    <color name="colorPrimary_purple">#C095B9</color>
+    <color name="colorPrimaryDark_purple">#AC81A5</color>
+    <color name="list_background_purple">#F2F2F2</color>
+    <color name="nav_background_purple">#D4A9CD</color>
+    <color name="nav_background_child_purple">#ccC095B9</color>
+
+    <!-- others -->
+    <color name="font_color1">#bb000000</color>
+    <color name="font_color2">#77000000</color>
+    <color name="selected_color">#E64440</color>
+    <color name="transparent">#00000000</color>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ParrotUnInstaller</string>
+    <string name="app_title">UnInstaller</string>
+    <!-- common -->
+    <string name="uninstall">UnInstall</string>
+    <string name="send_to">Share text to..</string>
+    <string name="delete">delete</string>
+    <string name="execute">execute</string>
+    <string name="no_data">No Results</string>
+    <string name="help">Help</string>
+    <string name="other">Others</string>
+    <string name="please_choose">Please Select</string>
+    <!-- menu -->
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="action_search">Search</string>
+    <string name="action_sort">Sort</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_launch">Launch</string>
+    <string name="action_details">Application Details</string>
+    <string name="action_favorite">Add To Favorites</string>
+    <string name="action_unfavorite">Remove From Favorites</string>
+    <string name="action_share">Share</string>
+    <string name="action_googleplay">Google Play</string>
+    <!-- setting -->
+    <string name="setting_sound_on_title">Sound On</string>
+    <string name="setting_sound_on_summary">Please note that the sound comes out</string>
+    <string name="setting_status_bar_title">Icon on Notification Bar</string>
+    <string name="setting_status_bar_summary">Show Apps Icon on Notification Bar</string>
+    <string name="setting_theme_title">Theme Color</string>
+    <string name="setting_show_system_app">Show System Application</string>
+    <string name="setting_refresh">Reset Applications List</string>
+    <string name="setting_refresh_confirm">Are you sure you want to reset Applications list?\nThis will delete Favorites and uninstall history.</string>
+    <string name="setting_refresh_completed">Applications List recreated</string>
+    <string name="environment_setting">Environment Settings</string>
+    <string name="pick_font_size">Font Size</string>
+    <string name="pick_font_size2">change only Applications List\'s strings</string>
+    <string name="setting_credit">Credit</string>
+    <string name="setting_mail_to_dev">Suggestions and Opinions</string>
+    <string name="setting_mail_to_dev2">[ParrotUnInstaller] Suggestions and Opinions</string>
+    <string name="setting_mail_to_dev3">We do not sell or share your information with anyone else.</string>
+    <!-- tutorial -->
+    <string name="tutorial_title1">Welcome to ParrotUnInstaller!</string>
+    <string name="tutorial_text1">Easy to use</string>
+    <string name="tutorial_title2">Main Screen</string>
+    <string name="tutorial_text2">Almost all function in the main menu and the menu of each application</string>
+    <string name="tutorial_title3">Main Menu</string>
+    <string name="tutorial_text3">Swipe left to right. You can show the main menu.</string>
+    <string name="tutorial_title4">Menu of each application</string>
+    <string name="tutorial_text4">You can uninstall from here</string>
+    <string name="tutorial_title5">Setting screen</string>
+    <string name="tutorial_text5">A variety of useful features</string>
+    <string name="tutorial_toast">You can see this tutorial always from Help</string>
+
+    <string name="app_count1">Apps : </string>
+    <string name="error_unselected">No application wasn\'t chosen</string>
+    <string name="error_nav_illegal">Sort can be available on Applications List screen</string>
+    <string name="top_title">Applications List</string>
+    <string name="history_title">Uninstall History</string>
+    <string name="history_confirm">Are you sure to remove from uninstall history?</string>
+    <string name="history_empty_text">No Results\n\nIf you uninstall applications, it will be shown here</string>
+    <string name="delete_history_completed">Deleted from the history</string>
+    <string name="favorite_title">Favorites</string>
+    <string name="favorite_completed">Added to the favorites</string>
+    <string name="unfavorite_completed">Deleted from the favorites</string>
+    <string name="favorite_empty_text">No Results\n\nIf you add applications to the favorites, it will be shown here</string>
+    <string name="error_googleplay">It was not found in Google Play</string>
+    <string name="launch_app">launch ParrotUnInstaller</string>
+    <string name="share_text">http://play.google.com/store/apps/details?id=sakurafish.com.parrotuninstaller #ParrotUnInstaller </string>
+    <string name="ask_review_title">Rate our app</string>
+    <string name="ask_review_message">If you love our app, please take a moment to rate it</string>
+    <string name="ask_update_title">New Version</string>
+    <string name="ask_update_message">Thank you for using this app. \nIt was released new version.\nplease update.</string>
+
+</resources>

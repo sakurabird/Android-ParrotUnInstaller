@@ -1,0 +1,49 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 環境設定 -->
+    <PreferenceCategory android:title="@string/environment_setting">
+        <ListPreference
+            android:defaultValue="2"
+            android:dialogIcon="@drawable/ic_launcher"
+            android:dialogTitle="@string/pick_font_size2"
+            android:entries="@array/setting_font_size"
+            android:entryValues="@array/setting_font_size_value"
+            android:key="PREF_FONT_SIZE"
+            android:title="@string/pick_font_size" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="PREF_SOUND_ON"
+            android:summary="@string/setting_sound_on_summary"
+            android:title="@string/setting_sound_on_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="PREF_SHOW_STATUS_BAR"
+            android:summary="@string/setting_status_bar_summary"
+            android:title="@string/setting_status_bar_title" />
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogIcon="@drawable/ic_launcher"
+            android:dialogTitle="@string/please_choose"
+            android:entries="@array/setting_theme"
+            android:entryValues="@array/setting_theme_value"
+            android:key="PREF_THEME"
+            android:title="@string/setting_theme_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="PREF_SHOW_SYSTEM_APP"
+            android:title="@string/setting_show_system_app" />
+        <Preference
+            android:key="PREF_REFRESH"
+            android:layout="@layout/row_preference" />
+    </PreferenceCategory>
+
+    <!-- その他 -->
+    <PreferenceCategory android:title="@string/other">
+        <sakurafish.com.parrot.uninstaller.pref.PrefCredit
+            android:key="PREF_CREDIT"
+            android:layout="@layout/row_preference" />
+        <sakurafish.com.parrot.uninstaller.pref.PrefMailToDev
+            android:key="PREF_MAIL_TO_DEV"
+            android:layout="@layout/row_preference" />
+    </PreferenceCategory>
+</PreferenceScreen>

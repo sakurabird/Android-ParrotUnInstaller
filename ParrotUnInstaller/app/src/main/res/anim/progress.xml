@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/inco_y1" android:duration="170" />
+    <item android:drawable="@drawable/inco_y2" android:duration="170" />
+    <item android:drawable="@drawable/inco_y3" android:duration="170" />
+    <item android:drawable="@drawable/inco_y4" android:duration="170" />
+    <item android:drawable="@drawable/inco_y5" android:duration="170" />
+    <item android:drawable="@drawable/inco_y6" android:duration="170" />
+</animation-list>

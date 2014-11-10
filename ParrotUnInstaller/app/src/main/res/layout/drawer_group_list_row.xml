@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_large"
+        android:layout_centerVertical="true"
+        android:src="@drawable/inco1"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/icon"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:gravity="center_vertical"
+        android:textColor="@color/font_color1"/>
+
+    <ImageView
+        android:src="@drawable/expander_indicator"
+        android:id="@+id/explist_indicator"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="14dp"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/list_divider" />
+
+
+</RelativeLayout>

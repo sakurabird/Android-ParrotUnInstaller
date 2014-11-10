@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="./fragment/TopFragment" >
+    <item android:id="@+id/action_uninstall"
+        android:title="@string/uninstall" />
+    <item android:id="@+id/action_details"
+        android:title="@string/action_details" />
+    <item android:id="@+id/action_favorite"
+        android:title="@string/action_favorite" />
+    <item android:id="@+id/action_share"
+        android:title="@string/action_share" />
+    <item android:id="@+id/action_googleplay"
+        android:title="@string/action_googleplay" />
+    <item android:id="@+id/action_launch"
+        android:title="@string/action_launch" />
+</menu>

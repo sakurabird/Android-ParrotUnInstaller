@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:paddingLeft="5dp"
+    android:paddingTop="@dimen/margin_medium"
+    android:paddingBottom="@dimen/margin_medium"
+    android:textSize="@dimen/font_medium">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/font_color1"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/app_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_small"
+        android:layout_below="@+id/app_name"
+        android:layout_alignLeft="@+id/app_name"
+        android:textColor="@color/font_color2"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/app_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/app_date"
+        android:layout_alignBottom="@+id/app_date"
+        android:textSize="@dimen/font_small"
+        android:textColor="@color/font_color2"
+        android:layout_marginLeft="@dimen/margin_medium"/>
+
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toLeftOf="@+id/googleplay"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/margin_large"
+        android:src="@drawable/ic_action_discard"/>
+
+    <ImageView
+        android:id="@+id/googleplay"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/margin_large"
+        android:src="@drawable/common_ic_googleplayservices"/>
+
+</RelativeLayout>

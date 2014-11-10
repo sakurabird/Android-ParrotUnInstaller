@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout_top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/list_background">
+
+    <TextView
+        android:id="@+id/app_count1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/app_count2"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/app_count2"
+        android:text="@string/app_count1"
+        android:textColor="@color/font_color1" />
+
+    <TextView
+        android:id="@+id/app_count2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:textColor="@color/font_color1" />
+
+    <Button
+        android:id="@+id/button_uninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/app_count2"
+        android:layout_marginRight="5dp"
+        android:drawableLeft="@drawable/inco_y1"
+        android:drawableRight="@drawable/inco_y6"
+        android:padding="5dp"
+        android:text="@string/uninstall"
+        android:textColor="@color/font_color1" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/button_uninstall"
+        android:background="@color/colorPrimary_purple" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:layout_above="@+id/ad_area"
+        android:fastScrollEnabled="true" />
+
+    <RelativeLayout
+        android:id="@+id/ad_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    </RelativeLayout>
+</RelativeLayout>

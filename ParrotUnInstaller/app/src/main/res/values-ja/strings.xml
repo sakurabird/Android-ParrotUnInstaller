@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">インコアンインストーラー</string>
+    <string name="app_title">アンインストーラー</string>
+    <!-- 共通 -->
+    <string name="uninstall">アンインストール</string>
+    <string name="send_to">Share text to..</string>
+    <string name="delete">削除</string>
+    <string name="execute">実行する</string>
+    <string name="no_data">表示するデータがありません</string>
+    <string name="help">ヘルプ</string>
+    <string name="other">その他</string>
+    <string name="please_choose">選択してください</string>
+    <!-- menu -->
+    <string name="drawer_open">開く</string>
+    <string name="drawer_close">閉じる</string>
+    <string name="action_search">Search</string>
+    <string name="action_sort">並び替え</string>
+    <string name="action_settings">設定</string>
+    <string name="action_launch">起動</string>
+    <string name="action_details">アプリの詳細</string>
+    <string name="action_favorite">お気に入りに追加</string>
+    <string name="action_unfavorite">お気に入りから削除</string>
+    <string name="action_share">シェア</string>
+    <string name="action_googleplay">Google Play</string>
+    <!-- setting -->
+    <string name="setting_sound_on_title">インコを鳴かせる</string>
+    <string name="setting_sound_on_summary">音が出ますのでご注意下さい</string>
+    <string name="setting_status_bar_title">通知エリアに表示</string>
+    <string name="setting_status_bar_summary">アプリアイコンを通知エリアに表示します</string>
+    <string name="setting_theme_title">テーマカラー</string>
+    <string name="setting_show_system_app">システムアプリを表示する</string>
+    <string name="setting_refresh">アプリ一覧をリセット</string>
+    <string name="setting_refresh_confirm">アプリ一覧をリセットしてよろしいですか？\nお気に入りと削除履歴も削除されます。</string>
+    <string name="setting_refresh_completed">アプリ一覧をリセットしました</string>
+    <string name="environment_setting">環境設定</string>
+    <string name="pick_font_size">文字の大きさ</string>
+    <string name="pick_font_size2">アプリ一覧の文字のみ変更となります。</string>
+    <string name="setting_credit">クレジット</string>
+    <string name="setting_mail_to_dev">開発へのご要望・ご感想</string>
+    <string name="setting_mail_to_dev2">【インコアンインストーラー】ご意見・ご要望</string>
+    <string name="setting_mail_to_dev3">ユーザー様のメールアドレスはこの連絡以外に使用することは一切ありません。</string>
+    <!-- tutorial -->
+    <string name="tutorial_title1">インコアンインストーラーにようこそ！</string>
+    <string name="tutorial_text1">使い方はとっても簡単</string>
+    <string name="tutorial_title2">メインの画面</string>
+    <string name="tutorial_text2">メインメニューとアプリ毎のメニューで大体の事ができます</string>
+    <string name="tutorial_title3">メインメニュー</string>
+    <string name="tutorial_text3">画面左端からタッチして右にスライドすることでも表示できます</string>
+    <string name="tutorial_title4">アプリ毎のメニュー</string>
+    <string name="tutorial_text4">ここから個別にアンインストールすることができます</string>
+    <string name="tutorial_title5">設定画面</string>
+    <string name="tutorial_text5">通知エリアに常駐させて起動しやすくしたり文字を大きくして見やすくしたり他にも便利機能がまとまっています</string>
+    <string name="tutorial_toast">このチュートリアルはヘルプより\nいつでもご覧になれます</string>
+
+    <string name="app_count1">アプリ数 :</string>
+    <string name="error_unselected">アプリが選択されていません</string>
+    <string name="error_nav_illegal">並び替えはアプリ一覧画面でご利用できます</string>
+    <string name="top_title">インストールアプリ一覧</string>
+    <string name="history_title">アンインストール履歴</string>
+    <string name="history_confirm">履歴から削除してよろしいですか？</string>
+    <string name="history_empty_text">表示するデータがありません\n\nアンインストールするとここに一覧が表示されます</string>
+    <string name="delete_history_completed">履歴から削除しました</string>
+    <string name="favorite_title">お気に入りアプリ一覧</string>
+    <string name="favorite_completed">お気に入りに追加しました</string>
+    <string name="unfavorite_completed">お気に入りから削除しました</string>
+    <string name="favorite_empty_text">表示するデータがありません\n\nお気に入りに追加するとここに一覧が表示されます\n\nアプリ一覧画面の行を長押しして表示されるメニューからお気に入りに追加を押すか、アプリ一覧画面の行の右側にあるマークをクリックして表示されるメニューからお気に入りに追加を押すと追加できます。</string>
+    <string name="error_googleplay">Google Playに見つかりませんでした</string>
+    <string name="launch_app">アンインストーラーを起動する</string>
+    <string name="share_text">http://play.google.com/store/apps/details?id=sakurafish.com.parrotuninstaller #インコアンインストーラー </string>
+    <string name="ask_review_title">レビューのお願い</string>
+    <string name="ask_review_message">いつもアプリをご利用してくださってありがとうございます！\nアプリの評価をしていただけませんでしょうか？\nOKボタンでGoogle Playに移動いたします。</string>
+    <string name="ask_update_title">新バージョン</string>
+    <string name="ask_update_message">いつもアプリをご利用してくださってありがとうございます！\n新バージョンがリリースされました。\nOKボタンでGoogle Playに移動いたしますので更新してくださると嬉しいです。</string>
+
+</resources>

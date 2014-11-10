@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <View
+        android:id="@+id/selected"
+        android:layout_width="13dp"
+        android:layout_height="match_parent"
+        android:background="@color/selected_color"/>
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_margin="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/font_color1"
+            android:text="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/app_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/font_color2"
+            android:text="@string/app_name"
+            android:paddingTop="5dp" />
+
+        <TextView
+            android:id="@+id/app_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/app_date"
+            android:layout_alignBaseline="@+id/app_date"
+            android:textColor="@color/font_color2"
+            android:layout_marginLeft="@dimen/margin_medium" />
+
+        <ImageView
+            android:id="@+id/row_context_menu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_large"
+            android:src="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

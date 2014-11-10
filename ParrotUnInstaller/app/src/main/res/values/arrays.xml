@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- navigation bar -->
+    <string-array name="navigation_group_strings">
+        <item>Home</item>
+        <item>Favorites</item>
+        <item>Uninstall History</item>
+        <item>Settings</item>
+        <item>Help</item>
+        <item>Sort</item>
+        <item>Google Play</item>
+        <item>Share</item>
+    </string-array>
+
+    <array name="navigation_group_icons">
+        <item>@drawable/inco1</item>
+        <item>@drawable/inco2</item>
+        <item>@drawable/inco3</item>
+        <item>@drawable/inco4</item>
+        <item>@drawable/inco5</item>
+        <item>@drawable/inco6</item>
+        <item>@drawable/inco7</item>
+        <item>@drawable/inco8</item>
+    </array>
+
+    <string-array name="navigation_sort_strings">
+        <item>By Name Ascending</item>
+        <item>By Name Descending</item>
+        <item>By Date Ascending</item>
+        <item>By Date Descending</item>
+        <item>By Size Ascending</item>
+        <item>By Size Ascending</item>
+    </string-array>
+
+    <!-- setting -->
+    <string-array name="setting_font_size">
+        <item>Big</item>
+        <item>Medium</item>
+        <item>Small</item>
+    </string-array>
+    <string-array name="setting_font_size_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="setting_theme">
+        <item>Green</item>
+        <item>Pink</item>
+        <item>Blue</item>
+        <item>Brown</item>
+        <item>Purple</item>
+    </string-array>
+    <string-array name="setting_theme_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>
