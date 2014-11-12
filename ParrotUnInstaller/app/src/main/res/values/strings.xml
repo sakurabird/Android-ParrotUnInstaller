@@ -68,7 +68,7 @@
     <string name="favorite_empty_text">No Results\n\nIf you add applications to the favorites, it will be shown here</string>
     <string name="error_googleplay">It was not found in Google Play</string>
     <string name="launch_app">launch ParrotUnInstaller</string>
-    <string name="share_text">http://play.google.com/store/apps/details?id=sakurafish.com.parrotuninstaller #ParrotUnInstaller </string>
+    <string name="share_text">http://play.google.com/store/apps/details?id=sakurafish.com.parrot.uninstaller #ParrotUnInstaller </string>
     <string name="ask_review_title">Rate our app</string>
     <string name="ask_review_message">If you love our app, please take a moment to rate it</string>
     <string name="ask_update_title">New Version</string>

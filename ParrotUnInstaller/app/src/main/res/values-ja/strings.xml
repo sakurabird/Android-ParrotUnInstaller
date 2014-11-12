@@ -68,7 +68,7 @@
     <string name="favorite_empty_text">表示するデータがありません\n\nお気に入りに追加するとここに一覧が表示されます\n\nアプリ一覧画面の行を長押しして表示されるメニューからお気に入りに追加を押すか、アプリ一覧画面の行の右側にあるマークをクリックして表示されるメニューからお気に入りに追加を押すと追加できます。</string>
     <string name="error_googleplay">Google Playに見つかりませんでした</string>
     <string name="launch_app">アンインストーラーを起動する</string>
-    <string name="share_text">http://play.google.com/store/apps/details?id=sakurafish.com.parrotuninstaller #インコアンインストーラー </string>
+    <string name="share_text">http://play.google.com/store/apps/details?id=sakurafish.com.parrot.uninstaller #インコアンインストーラー </string>
     <string name="ask_review_title">レビューのお願い</string>
     <string name="ask_review_message">いつもアプリをご利用してくださってありがとうございます！\nアプリの評価をしていただけませんでしょうか？\nOKボタンでGoogle Playに移動いたします。</string>
     <string name="ask_update_title">新バージョン</string>
