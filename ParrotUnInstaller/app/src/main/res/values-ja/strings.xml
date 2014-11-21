@@ -52,6 +52,7 @@
     <string name="tutorial_text4">ここから個別にアンインストールすることができます</string>
     <string name="tutorial_title5">設定画面</string>
     <string name="tutorial_text5">通知エリアに常駐させて起動しやすくしたり文字を大きくして見やすくしたり他にも便利機能がまとまっています</string>
+    <string name="tutorial_button">チュートリアルを表示</string>
     <string name="tutorial_toast">このチュートリアルはヘルプより\nいつでもご覧になれます</string>
 
     <string name="app_count1">アプリ数 :</string>

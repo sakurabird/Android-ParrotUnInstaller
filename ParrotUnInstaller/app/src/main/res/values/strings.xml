@@ -36,7 +36,7 @@
     <string name="setting_refresh_completed">Applications List recreated</string>
     <string name="environment_setting">Environment Settings</string>
     <string name="pick_font_size">Font Size</string>
-    <string name="pick_font_size2">change only Applications List\'s strings</string>
+    <string name="pick_font_size2">Change only Applications List\'s strings</string>
     <string name="setting_credit">Credit</string>
     <string name="setting_mail_to_dev">Suggestions and Opinions</string>
     <string name="setting_mail_to_dev2">[ParrotUnInstaller] Suggestions and Opinions</string>
@@ -52,6 +52,7 @@
     <string name="tutorial_text4">You can uninstall from here</string>
     <string name="tutorial_title5">Setting screen</string>
     <string name="tutorial_text5">A variety of useful features</string>
+    <string name="tutorial_button">Show tutorial</string>
     <string name="tutorial_toast">You can see this tutorial always from Help</string>
 
     <string name="app_count1">Apps : </string>
