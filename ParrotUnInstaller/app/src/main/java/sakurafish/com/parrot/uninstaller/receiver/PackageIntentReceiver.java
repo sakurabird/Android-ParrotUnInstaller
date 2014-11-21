@@ -15,6 +15,7 @@ import greendao.Apps;
 import greendao.AppsDao;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
+import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
 import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
 import sakurafish.com.parrot.uninstaller.utils.Utils;
@@ -41,6 +42,15 @@ public class PackageIntentReceiver extends BroadcastReceiver {
 
         if (action.equals(Intent.ACTION_PACKAGE_ADDED)) {
             addToDB(pkg);
+            return;
+        }
+
+        if (action.equals(Intent.ACTION_PACKAGE_REPLACED)) {
+            if (Pref.getPrefBool(context, Config.PREF_SHOW_STATUS_BAR, false)) {
+                UnInstallerUtils.setNotification();
+            } else {
+                UnInstallerUtils.cancelNotification();
+            }
             return;
         }
     }
