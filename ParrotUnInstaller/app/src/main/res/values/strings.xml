@@ -3,6 +3,7 @@
 
     <string name="app_name">ParrotUnInstaller</string>
     <string name="app_title">UnInstaller</string>
+    <string name="app_url">http://play.google.com/store/apps/details?id=sakurafish.com.parrot.uninstaller</string>
     <!-- common -->
     <string name="uninstall">UnInstall</string>
     <string name="send_to">Share text to..</string>

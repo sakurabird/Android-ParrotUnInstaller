@@ -510,8 +510,7 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
                 case REQUEST_CODE_REVIEW:
                 case REQUEST_CODE_UPDATE:
                     // Google Playに移動
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=sakurafish.com.parrotuninstaller")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_url))));
                     break;
             }
         }
