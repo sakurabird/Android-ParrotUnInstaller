@@ -16,7 +16,7 @@ import tokyo.suru_pass.AdContext;
 
 public class UninstallerApplication extends Application {
 
-    public static DaoSession daoSession;
+    private static DaoSession daoSession;
     private static UninstallerApplication application;
     private static SoundManager sSoundManager;
     private static int[] sSoundIds = new int[4];

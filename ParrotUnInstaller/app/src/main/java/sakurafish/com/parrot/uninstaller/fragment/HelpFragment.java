@@ -37,7 +37,7 @@ public class HelpFragment extends BaseFragment {
         initLayout();
     }
 
-    public void initLayout() {
+    private void initLayout() {
         getView().findViewById(R.id.button_tutorial).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

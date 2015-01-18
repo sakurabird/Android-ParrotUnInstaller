@@ -59,13 +59,13 @@ public abstract class BaseAppListFragment extends BaseFragment {
         }
     }
 
-    public abstract void getAppList(SortOrder sortOrder);
+    protected abstract void getAppList(SortOrder sortOrder);
 
     public abstract void getAppList(String query);
 
-    public abstract void initLayout();
+    protected abstract void initLayout();
 
-    public abstract void listRefresh();
+    protected abstract void listRefresh();
 
     /**
      * 初回のみアプリ情報のTable作成
