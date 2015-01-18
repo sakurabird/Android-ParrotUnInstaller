@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import greendao.Apps;
@@ -13,6 +14,7 @@ import greendao.DaoSession;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.ui.IncoProgressDialog;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
+import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
 import sakurafish.com.parrot.uninstaller.utils.Utils;
 
 /**
@@ -62,20 +64,36 @@ public class CreateAppTable extends AsyncTask<Void, Void, Void> {
 
     private void addRecord(@Nullable final List<ApplicationInfo> list) {
         if (list == null) return;
+
+        Utils.logDebug("計測スタート");
+        long start = System.currentTimeMillis();
+
+        List<Apps> appsList=new ArrayList<Apps>();
+
+
+
         for (final ApplicationInfo info : list) {
+
             try {
                 if (null != mPackageManager.getLaunchIntentForPackage(info.packageName)) {
-                    final Apps apps = AppsTableAccessHelper.addAppsRecord(mPackageManager, info);
+
+                    final Apps apps = UnInstallerUtils.createAppsFromApplicationInfo(mPackageManager, info);
                     if (apps == null) {
                         Utils.logError("Error app record didn't add. package:" + info.packageName);
-                        return;
+                        break;
                     }
+                    appsList.add(apps);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
                 Utils.logError("Error app record didn't add. package:" + info.packageName);
+                break;
             }
         }
+        AppsTableAccessHelper.addAppsRecord(appsList);
+
+        long stop = System.currentTimeMillis();
+        Utils.logDebug("実行にかかった時間は " + (stop - start) + " ミリ秒です。");
     }
 
     public interface Callback {

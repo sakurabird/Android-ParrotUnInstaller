@@ -1,11 +1,9 @@
 package sakurafish.com.parrot.uninstaller.utils;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 
-import java.io.File;
 import java.util.Date;
+import java.util.List;
 
 import greendao.Apps;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
@@ -17,48 +15,31 @@ public class AppsTableAccessHelper {
     }
 
     /**
-     * DBにアプリ情報を追加
+     * DBにアプリ情報を追加（複数レコード）
      *
-     * @param packageManager
-     * @param info
+     * @param appsList
      * @return
      */
     @NonNull
-    public synchronized static Apps addAppsRecord(@NonNull final PackageManager packageManager, @NonNull final ApplicationInfo info) {
-
-        final Apps apps = new Apps();
-        apps.setName(info.loadLabel(packageManager).toString());
-        apps.setPackage_name(info.packageName);
-
-        apps.setPackage_size(0);
-        final File file = new File(info.publicSourceDir);
-        long size = file.length();
-        apps.setPackage_size(size);
-
-        Date date = null;
-        try {
-            date = new Date(packageManager.getPackageInfo(info.packageName, PackageManager.GET_META_DATA).firstInstallTime);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-        apps.setInstall_time(date);
-
-        if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM) {
-            apps.setSystem_app(true);
-        } else {
-            apps.setSystem_app(false);
-        }
-
-        apps.setFavorite(false);
-        apps.setFavorite_added_time(null);
-        apps.setDelete(false);
-        apps.setDeleted_time(null);
+    public synchronized static int addAppsRecord(@NonNull final List<Apps> appsList) {
+        if (appsList.size() == 0) return 0;
 
         //レコード追加
-        UninstallerApplication.getDaoSession().getAppsDao().insertOrReplace(apps);
+        for (final Apps apps : appsList) {
+            UninstallerApplication.getDaoSession().getAppsDao().insertOrReplace(apps);
+        }
+        return appsList.size();
+    }
 
-        return apps;
+    /**
+     * DBにアプリ情報を追加（１レコード）
+     *
+     * @param apps
+     */
+    @NonNull
+    public synchronized static void addAppsRecord(@NonNull final Apps apps) {
+        //レコード追加
+        UninstallerApplication.getDaoSession().getAppsDao().insertOrReplace(apps);
     }
 
     /**

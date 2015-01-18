@@ -16,10 +16,9 @@ import sakurafish.com.parrot.uninstaller.TutorialActivity;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.config.SectionCodes.SortOrder;
+import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.tasks.CreateAppTable;
 import sakurafish.com.parrot.uninstaller.ui.BitmapLruCache;
-import sakurafish.com.parrot.uninstaller.pref.Pref;
-import sakurafish.com.parrot.uninstaller.utils.Utils;
 
 /**
  * Created by sakura on 2014/10/09.
@@ -72,11 +71,9 @@ public abstract class BaseAppListFragment extends BaseFragment {
      * 初回のみアプリ情報のTable作成
      */
     private void createAppList() {
-        Utils.logDebug("createAppList1");
         new CreateAppTable(mContext, mPackageManager, new CreateAppTable.Callback() {
             @Override
             public void onFinish(boolean success) {
-                Utils.logDebug("createAppList2");
                 Pref.setPref(mContext, Config.PREF_HAS_APP_TABLE, true);
                 getAppList(SortOrder.NAME_ASC);
             }

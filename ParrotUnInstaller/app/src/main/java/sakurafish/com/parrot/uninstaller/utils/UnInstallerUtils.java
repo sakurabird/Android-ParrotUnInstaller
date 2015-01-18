@@ -5,9 +5,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
+
+import java.io.File;
+import java.util.Date;
 
 import greendao.Apps;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
@@ -108,5 +113,45 @@ public class UnInstallerUtils {
     public static void sendDBChangeBroadcast() {
         final Intent i = new Intent(Config.INTENT_DB_UPDTE_ACTION);
         UninstallerApplication.getContext().sendBroadcast(i);
+    }
+
+    /**
+     * ApplicationInfoの情報からAppsの項目をセットする
+     *
+     * @param packageManager
+     * @param info
+     * @return
+     */
+    public static Apps createAppsFromApplicationInfo(PackageManager packageManager, ApplicationInfo info) {
+        final Apps apps = new Apps();
+        apps.setName(info.loadLabel(packageManager).toString());
+        apps.setPackage_name(info.packageName);
+
+        apps.setPackage_size(0);
+        final File file = new File(info.publicSourceDir);
+        long size = file.length();
+        apps.setPackage_size(size);
+
+        Date date = null;
+        try {
+            date = new Date(packageManager.getPackageInfo(info.packageName, PackageManager.GET_META_DATA).firstInstallTime);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+        apps.setInstall_time(date);
+
+        if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM) {
+            apps.setSystem_app(true);
+        } else {
+            apps.setSystem_app(false);
+        }
+
+        apps.setFavorite(false);
+        apps.setFavorite_added_time(null);
+        apps.setDelete(false);
+        apps.setDeleted_time(null);
+
+        return apps;
     }
 }
