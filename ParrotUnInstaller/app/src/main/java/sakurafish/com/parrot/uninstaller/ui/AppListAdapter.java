@@ -27,17 +27,15 @@ import sakurafish.com.parrot.uninstaller.pref.Pref;
 public class AppListAdapter extends ArrayAdapter<Apps> {
 
     private static int sFont_size;
-//    private int mLastPosition;
-//    private boolean isRowClicked = false;
+    final private Context mContext;
+    final private BitmapLruCache mLruCache;
+    final private TextView mAppCount;
+    final private SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+    final private PackageManager mPackageManager;
     private List<Apps> mAppsList;
     private boolean[] mSelectedList;
-    private Context mContext;
     private AppItemClickListener mItemListener;
-    private BitmapLruCache mLruCache;
-    private TextView mAppCount;
-    private SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
     private int mSelected = 0;
-    private PackageManager mPackageManager;
 
     public AppListAdapter(final Context context, final BitmapLruCache lruCache, final TextView appCount) {
         super(context, R.layout.row_applist);
@@ -62,7 +60,6 @@ public class AppListAdapter extends ArrayAdapter<Apps> {
     }
 
     public void swapClickedPosition(final int position) {
-//        isRowClicked = true;
         mSelected = mSelectedList[position] ? --mSelected : ++mSelected;
         mSelectedList[position] = !mSelectedList[position];
         mAppCount.setText(createAppSizeText());
@@ -166,19 +163,6 @@ public class AppListAdapter extends ArrayAdapter<Apps> {
         final float f = apps.getPackage_size() * (float) 0.000001;//MB
         holder.packageSize.setText(String.format("%.2f MB", f));
         holder.contextMenu.setTag(apps);
-
-//        if (!isRowClicked) {
-//            float initialTranslation = (mLastPosition <= position ? 500f : -500f);
-//            convertView.setTranslationY(initialTranslation);
-//            convertView.animate()
-//                    .setInterpolator(new DecelerateInterpolator(1.0f))
-//                    .translationY(0f)
-//                    .setDuration(300l)
-//                    .setListener(null);
-//            mLastPosition = position;
-//        } else {
-//            isRowClicked = false;
-//        }
 
         return convertView;
     }

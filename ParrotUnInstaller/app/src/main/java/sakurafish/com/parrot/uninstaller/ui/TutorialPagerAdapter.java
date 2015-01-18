@@ -14,29 +14,29 @@ import sakurafish.com.parrot.uninstaller.R;
 
 public class TutorialPagerAdapter extends PagerAdapter{
 
-    private static int[] sImageResources = {
+    private static final int[] sImageResources = {
             R.drawable.tutorial1,
             R.drawable.tutorial2,
             R.drawable.tutorial3,
             R.drawable.tutorial4,
             R.drawable.tutorial5,
     };
-    private static int[] sTitleResources = {
+    private static final int[] sTitleResources = {
             R.string.tutorial_title1,
             R.string.tutorial_title2,
             R.string.tutorial_title3,
             R.string.tutorial_title4,
             R.string.tutorial_title5,
     };
-    private static int[] sTextResources = {
+    private static final int[] sTextResources = {
             R.string.tutorial_text1,
             R.string.tutorial_text2,
             R.string.tutorial_text3,
             R.string.tutorial_text4,
             R.string.tutorial_text5,
     };
-    private Context mContext;
-    private ClickListener mListener = null;
+    final private Context mContext;
+    final private ClickListener mListener;
 
     public TutorialPagerAdapter(@NonNull final Context context, @NonNull final ClickListener listener) {
         mContext = context;

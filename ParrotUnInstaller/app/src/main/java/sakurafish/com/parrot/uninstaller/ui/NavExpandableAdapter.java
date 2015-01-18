@@ -27,10 +27,10 @@ public class NavExpandableAdapter extends BaseExpandableListAdapter {
             EMPTY_STATE_SET, // 0
             GROUP_EXPANDED_STATE_SET // 1
     };
-    private Context mContext;
-    private TypedArray mGroupIcons;
-    private String[] mGroupTitles;
-    private String[] mChildTitles;
+    final private Context mContext;
+    final private TypedArray mGroupIcons;
+    final private String[] mGroupTitles;
+    final private String[] mChildTitles;
 
     public NavExpandableAdapter(final Context context) {
         mContext = context;

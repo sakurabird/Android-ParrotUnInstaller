@@ -13,7 +13,7 @@ import sakurafish.com.parrot.uninstaller.UninstallerApplication;
  * Google Playのサイトよりリリースされているアプリのバージョンを取得する
  */
 public class RetrieveReleasedVersion extends AsyncTask<Void, Void, String> {
-    private Callback mCallback;
+    final private Callback mCallback;
     private String mPackageName;
 
     public RetrieveReleasedVersion(final Context context, final Callback callback) {

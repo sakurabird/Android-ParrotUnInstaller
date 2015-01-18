@@ -25,11 +25,10 @@ import sakurafish.com.parrot.uninstaller.pref.Pref;
 public class HistoryListAdapter extends ArrayAdapter<Apps> {
 
     private static int sFont_size;
-    //    private int mLastPosition;
+    final private Context mContext;
+    final private SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
     private List<Apps> mAppsList;
-    private Context mContext;
     private AppItemClickListener mItemListener;
-    private SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 
     public HistoryListAdapter(final Context context) {
         super(context, R.layout.row_applist);

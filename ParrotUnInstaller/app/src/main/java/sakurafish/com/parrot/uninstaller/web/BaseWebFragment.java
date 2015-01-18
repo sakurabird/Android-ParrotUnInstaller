@@ -39,7 +39,7 @@ public class BaseWebFragment extends BaseFragment {
     protected WebView mWebView;
     protected IncoProgressDialog mLoading;
 
-    protected WebViewClient mWebViewClient = new WebViewClient() {
+    final protected WebViewClient mWebViewClient = new WebViewClient() {
         @Override
         public void onPageStarted(final WebView view, final String url, final Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
@@ -104,7 +104,8 @@ public class BaseWebFragment extends BaseFragment {
             return false;
         }
     };
-    protected WebChromeClient mWebChromeClient = new WebChromeClient() {
+
+    final protected WebChromeClient mWebChromeClient = new WebChromeClient() {
         @Override
         public void onProgressChanged(final WebView view, final int newProgress) {
             super.onProgressChanged(view, newProgress);
@@ -131,9 +132,11 @@ public class BaseWebFragment extends BaseFragment {
             callback.invoke(origin, true, false);
         }
     };
+
     protected String mUrl;
     protected Bundle mBundle;
-    PictureListener mPictureLisener = new PictureListener() {
+
+    final PictureListener mPictureLisener = new PictureListener() {
 
         @Override
         @Deprecated

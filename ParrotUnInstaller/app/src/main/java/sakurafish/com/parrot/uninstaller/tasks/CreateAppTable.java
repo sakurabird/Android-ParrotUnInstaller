@@ -22,8 +22,8 @@ import sakurafish.com.parrot.uninstaller.utils.Utils;
  * Created by sakura on 2014/10/12.
  */
 public class CreateAppTable extends AsyncTask<Void, Void, Void> {
-    private Callback mCallback;
-    private Context mContext;
+    final private Callback mCallback;
+    final private Context mContext;
     private PackageManager mPackageManager = null;
     private IncoProgressDialog mProgressDialog;
 

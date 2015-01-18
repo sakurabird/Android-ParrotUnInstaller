@@ -19,7 +19,7 @@ public class UninstallerApplication extends Application {
     private static DaoSession daoSession;
     private static UninstallerApplication application;
     private static SoundManager sSoundManager;
-    private static int[] sSoundIds = new int[4];
+    private static final int[] sSoundIds = new int[4];
     private static AdContext sAdContext;//suru pass
     private Tracker mTracker;
 
