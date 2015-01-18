@@ -133,7 +133,7 @@ public class NavExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(final int groupPosition, final int childPosition) {
-        return groupPosition == NavMenu.SORT ? true : false;
+        return groupPosition == NavMenu.SORT;
     }
 
     private class GroupViewHolder {

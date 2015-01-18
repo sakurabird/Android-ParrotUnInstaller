@@ -418,7 +418,6 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
             } else {
                 ((FavoritesFragment) mContent).getAppList(query);
             }
-            return;
         }
     }
 

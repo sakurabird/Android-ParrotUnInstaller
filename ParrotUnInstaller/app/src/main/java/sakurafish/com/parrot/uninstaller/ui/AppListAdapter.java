@@ -64,7 +64,7 @@ public class AppListAdapter extends ArrayAdapter<Apps> {
     public void swapClickedPosition(final int position) {
 //        isRowClicked = true;
         mSelected = mSelectedList[position] ? --mSelected : ++mSelected;
-        mSelectedList[position] = mSelectedList[position] ? false : true;
+        mSelectedList[position] = !mSelectedList[position];
         mAppCount.setText(createAppSizeText());
         notifyDataSetChanged();
     }

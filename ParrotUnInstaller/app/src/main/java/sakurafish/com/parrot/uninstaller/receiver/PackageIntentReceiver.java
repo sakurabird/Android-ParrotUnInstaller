@@ -51,7 +51,6 @@ public class PackageIntentReceiver extends BroadcastReceiver {
             } else {
                 UnInstallerUtils.cancelNotification();
             }
-            return;
         }
     }
 
@@ -85,7 +84,6 @@ public class PackageIntentReceiver extends BroadcastReceiver {
         } catch (PackageManager.NameNotFoundException e) {
             Utils.logError("Error app record weren't added. package:" + info.packageName);
             e.printStackTrace();
-            return;
         }
     }
 }

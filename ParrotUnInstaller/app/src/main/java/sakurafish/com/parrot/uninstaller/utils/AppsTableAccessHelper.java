@@ -60,7 +60,7 @@ public class AppsTableAccessHelper {
      */
     public synchronized static void updateFavoriteAppsRecord(@NonNull final Apps apps, final boolean isFavorite) {
         apps.setFavorite(isFavorite);
-        Date date = isFavorite == true ? new Date() : null;
+        Date date = isFavorite ? new Date() : null;
         apps.setFavorite_added_time(date);
 
         UninstallerApplication.getDaoSession().getAppsDao().update(apps);
