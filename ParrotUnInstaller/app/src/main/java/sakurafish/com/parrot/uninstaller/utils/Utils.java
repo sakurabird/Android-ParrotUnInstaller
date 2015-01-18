@@ -170,8 +170,8 @@ public class Utils {
     public static String getVersionName() {
         Context context = UninstallerApplication.getContext();
         PackageManager manager = context.getPackageManager();
-        PackageInfo info = null;
-        String version = null;
+        PackageInfo info;
+        String version;
         try {
             info = manager.getPackageInfo(context.getPackageName(), 0);
             version = info.versionName;

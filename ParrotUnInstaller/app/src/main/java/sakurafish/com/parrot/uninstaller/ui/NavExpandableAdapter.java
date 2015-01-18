@@ -52,7 +52,7 @@ public class NavExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(final int groupPosition, final int childPosition,
                              final boolean isLastChild, View convertView, final ViewGroup parent) {
-        ChildViewHolder holder = null;
+        ChildViewHolder holder;
 
         if (convertView == null) {
             convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.drawer_child_list_row, null);
@@ -95,7 +95,7 @@ public class NavExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(final int groupPosition, final boolean isExpanded,
                              View convertView, final ViewGroup parent) {
-        GroupViewHolder holder = null;
+        GroupViewHolder holder;
 
         if (convertView == null) {
             convertView = ((Activity) mContext).getLayoutInflater().inflate(R.layout.drawer_group_list_row, null);

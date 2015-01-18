@@ -28,7 +28,7 @@ public class RetrieveReleasedVersion extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(final Void... params) {
-        String new_version = null;
+        String new_version;
         try {
             new_version = Jsoup.connect("https://play.google.com/store/apps/details?id=" + mPackageName)
                     .timeout(30000)

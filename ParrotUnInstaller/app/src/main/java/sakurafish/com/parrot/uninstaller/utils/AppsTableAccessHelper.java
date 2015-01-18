@@ -20,7 +20,6 @@ public class AppsTableAccessHelper {
      * @param appsList
      * @return
      */
-    @NonNull
     public synchronized static int addAppsRecord(@NonNull final List<Apps> appsList) {
         if (appsList.size() == 0) return 0;
 
@@ -36,7 +35,6 @@ public class AppsTableAccessHelper {
      *
      * @param apps
      */
-    @NonNull
     public synchronized static void addAppsRecord(@NonNull final Apps apps) {
         //レコード追加
         UninstallerApplication.getDaoSession().getAppsDao().insertOrReplace(apps);

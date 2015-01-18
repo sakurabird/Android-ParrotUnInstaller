@@ -63,7 +63,7 @@ public class HistoryListAdapter extends ArrayAdapter<Apps> {
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         final Apps apps = mAppsList.get(position);
 
         if (convertView == null) {

@@ -132,7 +132,7 @@ public class UnInstallerUtils {
         long size = file.length();
         apps.setPackage_size(size);
 
-        Date date = null;
+        Date date;
         try {
             date = new Date(packageManager.getPackageInfo(info.packageName, PackageManager.GET_META_DATA).firstInstallTime);
         } catch (PackageManager.NameNotFoundException e) {

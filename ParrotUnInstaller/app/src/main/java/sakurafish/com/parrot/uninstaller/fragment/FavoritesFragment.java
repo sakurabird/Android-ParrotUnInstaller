@@ -196,7 +196,7 @@ public class FavoritesFragment extends BaseAppListFragment {
 
         AdapterView.AdapterContextMenuInfo adapterInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
         Apps apps = mAppList.get(adapterInfo.position);
-        Drawable icon = null;
+        Drawable icon;
         try {
             icon = mPackageManager.getApplicationIcon(apps.getPackage_name());
             menu.setHeaderIcon(icon);

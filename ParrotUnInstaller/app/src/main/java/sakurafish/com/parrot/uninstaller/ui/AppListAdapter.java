@@ -102,7 +102,7 @@ public class AppListAdapter extends ArrayAdapter<Apps> {
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         final Apps apps = mAppsList.get(position);
 
         if (convertView == null) {
@@ -148,7 +148,7 @@ public class AppListAdapter extends ArrayAdapter<Apps> {
             holder.iconView.setImageBitmap(bitmap);
         } else {
             // キャッシュになし
-            Drawable icon = null;
+            Drawable icon;
             try {
                 icon = mPackageManager.getApplicationIcon(apps.getPackage_name());
                 final Bitmap b = ((BitmapDrawable) icon).getBitmap();

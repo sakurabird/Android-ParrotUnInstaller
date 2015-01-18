@@ -74,7 +74,7 @@ public class PackageIntentReceiver extends BroadcastReceiver {
             info = packageManager.getApplicationInfo(packageName, 0);
             final Apps apps = UnInstallerUtils.createAppsFromApplicationInfo(packageManager, info);
             if (apps == null) {
-                Utils.logError("Error app record weren't added. package:" + info.packageName);
+                Utils.logError("Error app record weren't added. package:" + packageName);
                 return;
             }
             AppsTableAccessHelper.addAppsRecord(apps);
@@ -82,7 +82,7 @@ public class PackageIntentReceiver extends BroadcastReceiver {
             final Intent i = new Intent(Config.INTENT_DB_UPDTE_ACTION);
             UninstallerApplication.getContext().sendBroadcast(i);
         } catch (PackageManager.NameNotFoundException e) {
-            Utils.logError("Error app record weren't added. package:" + info.packageName);
+            Utils.logError("Error app record weren't added. package:" + packageName);
             e.printStackTrace();
         }
     }

@@ -204,15 +204,13 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
         if (which == DialogInterface.BUTTON_POSITIVE) {
             if (reqCode == REQUEST_CODE_DELETE) {
                 // 削除処理
-                if (args != null) {
-                    if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
-                        UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[0]);
-                    }
-                    Apps apps = (Apps) args.getSerializable("Apps");
-                    AppsTableAccessHelper.deleteCompleteAppsRecord(apps);
-                    Utils.showToast((Activity) mContext, mContext.getString(R.string.delete_history_completed));
-                    getAppList(mSortOrder);
+                if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
+                    UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[0]);
                 }
+                Apps apps = (Apps) args.getSerializable("Apps");
+                AppsTableAccessHelper.deleteCompleteAppsRecord(apps);
+                Utils.showToast((Activity) mContext, mContext.getString(R.string.delete_history_completed));
+                getAppList(mSortOrder);
             }
         }
     }
