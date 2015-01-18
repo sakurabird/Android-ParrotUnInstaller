@@ -45,8 +45,7 @@ public class FavoritesFragment extends BaseAppListFragment {
     private TextView mAppCount;
 
     public static FavoritesFragment getInstance() {
-        FavoritesFragment fragment = new FavoritesFragment();
-        return fragment;
+        return new FavoritesFragment();
     }
 
     @Override

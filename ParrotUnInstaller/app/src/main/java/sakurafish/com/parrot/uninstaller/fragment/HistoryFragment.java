@@ -39,8 +39,7 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
     private HistoryListAdapter mListAdaptor = null;
 
     public static HistoryFragment getInstance() {
-        HistoryFragment fragment = new HistoryFragment();
-        return fragment;
+        return new HistoryFragment();
     }
 
     @Override

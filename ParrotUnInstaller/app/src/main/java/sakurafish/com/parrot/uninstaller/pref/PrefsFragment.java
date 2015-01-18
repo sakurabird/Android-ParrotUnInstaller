@@ -32,8 +32,7 @@ public class PrefsFragment extends PreferenceFragment
     private Context mContext;
 
     public static PrefsFragment getInstance() {
-        PrefsFragment fragment = new PrefsFragment();
-        return fragment;
+        return new PrefsFragment();
     }
 
     @Override

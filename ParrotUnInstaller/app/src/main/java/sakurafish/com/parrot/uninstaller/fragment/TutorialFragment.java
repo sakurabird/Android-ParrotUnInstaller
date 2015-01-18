@@ -21,8 +21,7 @@ public class TutorialFragment extends BaseFragment {
     private Context mContext;
 
     public static TutorialFragment getInstance() {
-        TutorialFragment fragment = new TutorialFragment();
-        return fragment;
+        return  new TutorialFragment();
     }
 
     @Override

@@ -197,8 +197,7 @@ public class Utils {
                 yearDiff--;
             }
         }
-        int gene = (int) Math.floor(yearDiff / 10);
-        return gene;
+        return (int) Math.floor(yearDiff / 10);
     }
 
     public static boolean checkStorage() {
@@ -406,7 +405,6 @@ public class Utils {
      * @return
      */
     public static float getDensity(final Activity activity) {
-        float density = activity.getResources().getDisplayMetrics().density;
-        return density;
+        return activity.getResources().getDisplayMetrics().density;
     }
 }

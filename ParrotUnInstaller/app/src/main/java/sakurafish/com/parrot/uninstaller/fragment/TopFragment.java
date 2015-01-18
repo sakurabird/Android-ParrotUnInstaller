@@ -44,8 +44,7 @@ public class TopFragment extends BaseAppListFragment {
     private TextView mAppCount;
 
     public static TopFragment getInstance() {
-        TopFragment fragment = new TopFragment();
-        return fragment;
+        return new TopFragment();
     }
 
     @Override

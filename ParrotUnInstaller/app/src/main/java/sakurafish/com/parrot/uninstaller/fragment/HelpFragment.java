@@ -20,8 +20,7 @@ public class HelpFragment extends BaseFragment {
     private Context mContext;
 
     public static HelpFragment getInstance() {
-        HelpFragment fragment = new HelpFragment();
-        return fragment;
+        return new HelpFragment();
     }
 
     @Override
