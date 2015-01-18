@@ -26,7 +26,6 @@ public class CreateAppTable extends AsyncTask<Void, Void, Void> {
     private Context mContext;
     private PackageManager mPackageManager = null;
     private IncoProgressDialog mProgressDialog;
-    private DaoSession mDaoSession;
 
     public CreateAppTable(final Context context, final PackageManager packageManager, final Callback callback) {
         mCallback = callback;
@@ -38,8 +37,8 @@ public class CreateAppTable extends AsyncTask<Void, Void, Void> {
     protected void onPreExecute() {
         mProgressDialog = new IncoProgressDialog(mContext);
         mProgressDialog.show();
-        mDaoSession = UninstallerApplication.getDaoSession();
-        mDaoSession.getAppsDao().deleteAll();
+        DaoSession daoSession = UninstallerApplication.getDaoSession();
+        daoSession.getAppsDao().deleteAll();
 
         super.onPreExecute();
     }

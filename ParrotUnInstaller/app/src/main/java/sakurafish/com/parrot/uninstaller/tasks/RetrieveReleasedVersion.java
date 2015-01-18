@@ -14,12 +14,10 @@ import sakurafish.com.parrot.uninstaller.UninstallerApplication;
  */
 public class RetrieveReleasedVersion extends AsyncTask<Void, Void, String> {
     private Callback mCallback;
-    private Context mContext;
     private String mPackageName;
 
     public RetrieveReleasedVersion(final Context context, final Callback callback) {
         mCallback = callback;
-        mContext = context;
     }
 
     @Override
