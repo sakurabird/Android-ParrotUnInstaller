@@ -1,21 +1,22 @@
 package sakurafish.com.parrot.uninstaller.fragment;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
 import greendao.Apps;
 import greendao.DaoSession;
 import sakurafish.com.parrot.uninstaller.TutorialActivity;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.config.SectionCodes.SortOrder;
+import sakurafish.com.parrot.uninstaller.events.DataChangedEvent;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.tasks.CreateAppTable;
 import sakurafish.com.parrot.uninstaller.ui.BitmapLruCache;
@@ -31,7 +32,6 @@ public abstract class BaseAppListFragment extends BaseFragment {
     protected List<Apps> mAppList = new ArrayList<Apps>();
     protected BitmapLruCache mLruCache;
     protected SortOrder mSortOrder = SortOrder.NAME_ASC;
-    private DBUpdateReceiver mUpdateReceiver;
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
@@ -81,21 +81,17 @@ public abstract class BaseAppListFragment extends BaseFragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Config.INTENT_DB_UPDTE_ACTION);
-        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
-        mUpdateReceiver = new DBUpdateReceiver();
-        mContext.registerReceiver(mUpdateReceiver, filter);
+    public void onStart() {
+        super.onStart();
+        // EventBusを登録する
+        EventBus.getDefault().register(this);
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-
-        mContext.unregisterReceiver(mUpdateReceiver);
+    public void onStop() {
+        // EventBusを登録解除する
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
     @Override
@@ -108,20 +104,13 @@ public abstract class BaseAppListFragment extends BaseFragment {
         mAppList = null;
         mSortOrder = null;
         mLruCache = null;
-        mUpdateReceiver = null;
     }
 
     /**
-     * DB変更の通知を受け取り画面を更新する
+     * DB変更の通知を受け取り画面を更新する<br>
      */
-    public class DBUpdateReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(final Context context, final Intent intent) {
-            String action = intent.getAction();
-            if (action != null && action.equals(Config.INTENT_DB_UPDTE_ACTION)) {
-                getAppList(mSortOrder);
-                listRefresh();
-            }
-        }
+    public void onEvent(@NonNull final DataChangedEvent event){
+        getAppList(mSortOrder);
+        listRefresh();
     }
 }

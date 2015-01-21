@@ -15,10 +15,9 @@ import java.io.File;
 import java.util.Date;
 
 import greendao.Apps;
-import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.R;
 import sakurafish.com.parrot.uninstaller.TopActivity;
-import sakurafish.com.parrot.uninstaller.config.Config;
+import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 
 public class UnInstallerUtils {
 
@@ -105,14 +104,6 @@ public class UnInstallerUtils {
         final NotificationManager notificationManager = (NotificationManager) UninstallerApplication.getContext()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(R.string.app_name);
-    }
-
-    /**
-     * DBの変更を通知する
-     */
-    public static void sendDBChangeBroadcast() {
-        final Intent i = new Intent(Config.INTENT_DB_UPDTE_ACTION);
-        UninstallerApplication.getContext().sendBroadcast(i);
     }
 
     /**

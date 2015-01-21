@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
+import de.greenrobot.event.EventBus;
 import sakurafish.com.parrot.uninstaller.R;
 import sakurafish.com.parrot.uninstaller.TopActivity;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
+import sakurafish.com.parrot.uninstaller.events.DataChangedEvent;
 import sakurafish.com.parrot.uninstaller.tasks.CreateAppTable;
 import sakurafish.com.parrot.uninstaller.ui.GeneralDialogFragment;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
@@ -129,7 +131,7 @@ public class PrefsFragment extends PreferenceFragment
         }
 
         if (key.contains(Config.PREF_SHOW_SYSTEM_APP)) {
-            UnInstallerUtils.sendDBChangeBroadcast();
+            EventBus.getDefault().post(new DataChangedEvent());
         }
 
         if (key.contains(Config.PREF_THEME)) {
@@ -148,7 +150,7 @@ public class PrefsFragment extends PreferenceFragment
                 if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
                     UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[0]);
                 }
-                UnInstallerUtils.sendDBChangeBroadcast();
+                EventBus.getDefault().post(new DataChangedEvent());
                 Utils.showToast((Activity) mContext, getString(R.string.setting_refresh_completed));
             }
         }).execute();

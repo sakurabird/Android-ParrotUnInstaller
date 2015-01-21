@@ -11,16 +11,19 @@ import android.text.TextUtils;
 
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
 import greendao.Apps;
 import greendao.AppsDao;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
+import sakurafish.com.parrot.uninstaller.events.DataChangedEvent;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
 import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
 import sakurafish.com.parrot.uninstaller.utils.Utils;
 
 /**
+ * パッケージが追加・削除された時に呼び出される
  * Created by sakura on 2014/10/13.
  */
 public class PackageIntentReceiver extends BroadcastReceiver {
@@ -61,7 +64,7 @@ public class PackageIntentReceiver extends BroadcastReceiver {
         for (final Apps apps : appsList) {
             if (apps.getPackage_name().equals(packageName)) {
                 AppsTableAccessHelper.deleteAppsRecord(apps);
-                UnInstallerUtils.sendDBChangeBroadcast();
+                EventBus.getDefault().post(new DataChangedEvent());
                 return;
             }
         }
@@ -78,9 +81,7 @@ public class PackageIntentReceiver extends BroadcastReceiver {
                 return;
             }
             AppsTableAccessHelper.addAppsRecord(apps);
-
-            final Intent i = new Intent(Config.INTENT_DB_UPDTE_ACTION);
-            UninstallerApplication.getContext().sendBroadcast(i);
+            EventBus.getDefault().post(new DataChangedEvent());
         } catch (PackageManager.NameNotFoundException e) {
             Utils.logError("Error app record weren't added. package:" + packageName);
             e.printStackTrace();
