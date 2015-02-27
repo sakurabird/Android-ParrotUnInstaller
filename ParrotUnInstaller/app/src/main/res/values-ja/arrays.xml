@@ -38,11 +38,6 @@
         <item>中</item>
         <item>小</item>
     </string-array>
-    <string-array name="setting_font_size_value">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
 
     <string-array name="setting_theme">
         <item>グリーン</item>
@@ -50,13 +45,6 @@
         <item>青</item>
         <item>茶色</item>
         <item>紫</item>
-    </string-array>
-    <string-array name="setting_theme_value">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
     </string-array>
 
 </resources>
