@@ -42,6 +42,7 @@
     <string name="setting_mail_to_dev">Suggestions and Opinions</string>
     <string name="setting_mail_to_dev2">[ParrotUnInstaller] Suggestions and Opinions</string>
     <string name="setting_mail_to_dev3">We do not sell or share your information with anyone else.</string>
+    <string name="setting_sort_order">Default Sort Order</string>
     <!-- tutorial -->
     <string name="tutorial_title1">Welcome to ParrotUnInstaller!</string>
     <string name="tutorial_text1">Easy to use</string>

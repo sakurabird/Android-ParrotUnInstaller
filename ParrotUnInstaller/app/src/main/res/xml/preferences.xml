@@ -3,6 +3,14 @@
     <!-- 環境設定 -->
     <PreferenceCategory android:title="@string/environment_setting">
         <ListPreference
+            android:defaultValue="1"
+            android:dialogIcon="@drawable/ic_launcher"
+            android:dialogTitle="@string/pick_font_size2"
+            android:entries="@array/navigation_sort_strings"
+            android:entryValues="@array/setting_sort_value"
+            android:key="PREF_SORT_ORDER"
+            android:title="@string/setting_sort_order" />
+        <ListPreference
             android:defaultValue="2"
             android:dialogIcon="@drawable/ic_launcher"
             android:dialogTitle="@string/pick_font_size2"
@@ -32,13 +40,13 @@
             android:defaultValue="false"
             android:key="PREF_SHOW_SYSTEM_APP"
             android:title="@string/setting_show_system_app" />
-        <Preference
-            android:key="PREF_REFRESH"
-            android:layout="@layout/row_preference" />
     </PreferenceCategory>
 
     <!-- その他 -->
     <PreferenceCategory android:title="@string/other">
+        <Preference
+            android:key="PREF_REFRESH"
+            android:layout="@layout/row_preference" />
         <sakurafish.com.parrot.uninstaller.pref.PrefCredit
             android:key="PREF_CREDIT"
             android:layout="@layout/row_preference" />

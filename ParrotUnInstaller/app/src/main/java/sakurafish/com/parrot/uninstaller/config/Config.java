@@ -15,9 +15,7 @@ public class Config {
     public static final String PREF_REFRESH = "PREF_REFRESH";
     public static final String PREF_CREDIT = "PREF_CREDIT";
     public static final String PREF_MAIL_TO_DEV = "PREF_MAIL_TO_DEV";
-
-    // Intent
-    public static final String INTENT_DB_UPDTE_ACTION = "INTENT_DB_UPDTE_ACTION";
+    public static final String PREF_SORT_ORDER = "PREF_SORT_ORDER";
 
     //    Tag string
     public static final String TAG_ERROR = "TAG_ERROR";

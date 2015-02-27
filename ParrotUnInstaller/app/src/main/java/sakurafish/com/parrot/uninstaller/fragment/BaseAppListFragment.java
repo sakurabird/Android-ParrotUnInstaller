@@ -40,7 +40,8 @@ public abstract class BaseAppListFragment extends BaseFragment {
         mContext = getActivity();
         mPackageManager = mContext.getPackageManager();
         mDaoSession = UninstallerApplication.getDaoSession();
-        mSortOrder = SortOrder.NAME_ASC;
+        int no = Integer.parseInt(Pref.getSharedPreferences(mContext).getString(Config.PREF_SORT_ORDER, "1"));
+        mSortOrder = mSortOrder.getSortOrderFromNo(no);
 
         mLruCache = new BitmapLruCache();
 
