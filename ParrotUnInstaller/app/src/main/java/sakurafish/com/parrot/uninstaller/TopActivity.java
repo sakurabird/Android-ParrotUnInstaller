@@ -42,6 +42,7 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
 
     private static final int REQUEST_CODE_REVIEW = 112;
     private static final int REQUEST_CODE_UPDATE = 113;
+    protected SortOrder mSortOrder = SortOrder.NAME_ASC;
     private Context mContext;
     private Fragment mContent;
     private DrawerLayout mDrawerLayout;
@@ -100,6 +101,8 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
     }
 
     private void init() {
+        mSortOrder = UnInstallerUtils.getDefaultSortOrder();
+
         if (Pref.getPrefBool(mContext, Config.PREF_SHOW_STATUS_BAR, false)) {
             UnInstallerUtils.setNotification();
         } else {
@@ -319,74 +322,38 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
             UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[0]);
         }
 
+        //ソートする
         switch (position) {
             case 0:
-                if (mContent instanceof TopFragment) {
-                    ((TopFragment) mContent).getAppList(SortOrder.NAME_ASC);
-                }
-                if (mContent instanceof FavoritesFragment) {
-                    ((FavoritesFragment) mContent).getAppList(SortOrder.NAME_ASC);
-                }
-                if (mContent instanceof HistoryFragment) {
-                    ((HistoryFragment) mContent).getAppList(SortOrder.NAME_ASC);
-                }
+                mSortOrder = SortOrder.NAME_ASC;
                 break;
             case 1:
-                if (mContent instanceof TopFragment) {
-                    ((TopFragment) mContent).getAppList(SortOrder.NAME_DSC);
-                }
-                if (mContent instanceof FavoritesFragment) {
-                    ((FavoritesFragment) mContent).getAppList(SortOrder.NAME_DSC);
-                }
-                if (mContent instanceof HistoryFragment) {
-                    ((HistoryFragment) mContent).getAppList(SortOrder.NAME_DSC);
-                }
+                mSortOrder = SortOrder.NAME_DSC;
                 break;
             case 2:
-                if (mContent instanceof TopFragment) {
-                    ((TopFragment) mContent).getAppList(SortOrder.DATE_ASC);
-                }
-                if (mContent instanceof FavoritesFragment) {
-                    ((FavoritesFragment) mContent).getAppList(SortOrder.DATE_ASC);
-                }
-                if (mContent instanceof HistoryFragment) {
-                    ((HistoryFragment) mContent).getAppList(SortOrder.DATE_ASC);
-                }
+                mSortOrder = SortOrder.DATE_ASC;
                 break;
             case 3:
-                if (mContent instanceof TopFragment) {
-                    ((TopFragment) mContent).getAppList(SortOrder.DATE_DSC);
-                }
-                if (mContent instanceof FavoritesFragment) {
-                    ((FavoritesFragment) mContent).getAppList(SortOrder.DATE_DSC);
-                }
-                if (mContent instanceof HistoryFragment) {
-                    ((HistoryFragment) mContent).getAppList(SortOrder.DATE_DSC);
-                }
+                mSortOrder = SortOrder.DATE_DSC;
                 break;
             case 4:
-                if (mContent instanceof TopFragment) {
-                    ((TopFragment) mContent).getAppList(SortOrder.SIZE_ASC);
-                }
-                if (mContent instanceof FavoritesFragment) {
-                    ((FavoritesFragment) mContent).getAppList(SortOrder.SIZE_ASC);
-                }
-                if (mContent instanceof HistoryFragment) {
-                    ((HistoryFragment) mContent).getAppList(SortOrder.SIZE_ASC);
-                }
+                mSortOrder = SortOrder.SIZE_ASC;
                 break;
             case 5:
-                if (mContent instanceof TopFragment) {
-                    ((TopFragment) mContent).getAppList(SortOrder.SIZE_DSC);
-                }
-                if (mContent instanceof FavoritesFragment) {
-                    ((FavoritesFragment) mContent).getAppList(SortOrder.SIZE_DSC);
-                }
-                if (mContent instanceof HistoryFragment) {
-                    ((HistoryFragment) mContent).getAppList(SortOrder.SIZE_DSC);
-                }
+                mSortOrder = SortOrder.SIZE_DSC;
                 break;
         }
+
+        if (mContent instanceof TopFragment) {
+            ((TopFragment) mContent).getAppList(mSortOrder);
+        }
+        if (mContent instanceof FavoritesFragment) {
+            ((FavoritesFragment) mContent).getAppList(mSortOrder);
+        }
+        if (mContent instanceof HistoryFragment) {
+            ((HistoryFragment) mContent).getAppList(mSortOrder);
+        }
+
         mDrawerList.collapseGroup(NavMenu.SORT);
         mDrawerLayout.closeDrawers();
     }
@@ -396,28 +363,21 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
         if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
             UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[3]);
         }
+        if (TextUtils.isEmpty(query)) {
+            ((TopFragment) mContent).getAppList(mSortOrder);
+            return;
+        }
+
         if (mContent instanceof TopFragment) {
-            if (TextUtils.isEmpty(query)) {
-                ((TopFragment) mContent).getAppList(SortOrder.NAME_ASC);
-            } else {
-                ((TopFragment) mContent).getAppList(query);
-            }
+            ((TopFragment) mContent).getAppList(query);
             return;
         }
         if (mContent instanceof HistoryFragment) {
-            if (TextUtils.isEmpty(query)) {
-                ((HistoryFragment) mContent).getAppList(SortOrder.NAME_ASC);
-            } else {
-                ((HistoryFragment) mContent).getAppList(query);
-            }
+            ((HistoryFragment) mContent).getAppList(query);
             return;
         }
         if (mContent instanceof FavoritesFragment) {
-            if (TextUtils.isEmpty(query)) {
-                ((FavoritesFragment) mContent).getAppList(SortOrder.NAME_ASC);
-            } else {
-                ((FavoritesFragment) mContent).getAppList(query);
-            }
+            ((FavoritesFragment) mContent).getAppList(query);
         }
     }
 

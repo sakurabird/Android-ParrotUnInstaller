@@ -20,6 +20,7 @@ import sakurafish.com.parrot.uninstaller.events.DataChangedEvent;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.tasks.CreateAppTable;
 import sakurafish.com.parrot.uninstaller.ui.BitmapLruCache;
+import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
 
 /**
  * Created by sakura on 2014/10/09.
@@ -31,7 +32,7 @@ public abstract class BaseAppListFragment extends BaseFragment {
     protected DaoSession mDaoSession;
     protected List<Apps> mAppList = new ArrayList<Apps>();
     protected BitmapLruCache mLruCache;
-    protected SortOrder mSortOrder = SortOrder.NAME_ASC;
+    protected SortOrder mSortOrder;
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
@@ -40,10 +41,9 @@ public abstract class BaseAppListFragment extends BaseFragment {
         mContext = getActivity();
         mPackageManager = mContext.getPackageManager();
         mDaoSession = UninstallerApplication.getDaoSession();
-        int no = Integer.parseInt(Pref.getSharedPreferences(mContext).getString(Config.PREF_SORT_ORDER, "1"));
-        mSortOrder = mSortOrder.getSortOrderFromNo(no);
 
         mLruCache = new BitmapLruCache();
+        mSortOrder = UnInstallerUtils.getDefaultSortOrder();
 
         initLayout();
 
@@ -103,7 +103,6 @@ public abstract class BaseAppListFragment extends BaseFragment {
         mPackageManager = null;
         mDaoSession = null;
         mAppList = null;
-        mSortOrder = null;
         mLruCache = null;
     }
 

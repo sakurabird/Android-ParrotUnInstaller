@@ -18,11 +18,21 @@ import greendao.Apps;
 import sakurafish.com.parrot.uninstaller.R;
 import sakurafish.com.parrot.uninstaller.TopActivity;
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
+import sakurafish.com.parrot.uninstaller.config.Config;
+import sakurafish.com.parrot.uninstaller.config.SectionCodes;
+import sakurafish.com.parrot.uninstaller.pref.Pref;
 
 public class UnInstallerUtils {
 
     @Deprecated
     private UnInstallerUtils() {
+    }
+
+    public static SectionCodes.SortOrder getDefaultSortOrder() {
+        SectionCodes.SortOrder sortOrder = SectionCodes.SortOrder.DATE_ASC;
+        int no = Integer.parseInt(Pref.getSharedPreferences(UninstallerApplication.getContext()).getString(Config.PREF_SORT_ORDER, "1"));
+        sortOrder = sortOrder.getSortOrderFromNo(no);
+        return sortOrder;
     }
 
     /**

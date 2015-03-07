@@ -17,17 +17,18 @@ import android.widget.TextView;
 import de.greenrobot.dao.query.QueryBuilder;
 import greendao.Apps;
 import greendao.AppsDao;
-import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.R;
 import sakurafish.com.parrot.uninstaller.TopActivity;
+import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.config.SectionCodes.SortOrder;
+import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.ui.AppItemClickListener;
 import sakurafish.com.parrot.uninstaller.ui.GeneralDialogFragment;
 import sakurafish.com.parrot.uninstaller.ui.HistoryListAdapter;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
-import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.utils.ThemeUtils;
+import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
 import sakurafish.com.parrot.uninstaller.utils.Utils;
 
 /**
@@ -51,6 +52,7 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mSortOrder = UnInstallerUtils.getDefaultSortOrder();
         ((TopActivity) mContext).setFragmentViews(Config.NavMenu.HISTORY);
     }
 

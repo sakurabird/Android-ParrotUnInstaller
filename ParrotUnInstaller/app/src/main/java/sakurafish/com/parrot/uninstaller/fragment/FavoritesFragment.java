@@ -57,6 +57,7 @@ public class FavoritesFragment extends BaseAppListFragment {
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mSortOrder = UnInstallerUtils.getDefaultSortOrder();
         ((TopActivity) mContext).setFragmentViews(Config.NavMenu.FAVOURITES);
     }
 
