@@ -4,11 +4,13 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
 import greendao.DaoMaster;
 import greendao.DaoSession;
+import io.fabric.sdk.android.Fabric;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.utils.SoundManager;
@@ -55,6 +57,7 @@ public class UninstallerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
 
         mTracker = GoogleAnalytics.getInstance(this).newTracker(R.xml.global_tracker);
 
