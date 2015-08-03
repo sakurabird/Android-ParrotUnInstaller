@@ -15,6 +15,7 @@ import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.utils.SoundManager;
 import tokyo.suru_pass.AdContext;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class UninstallerApplication extends Application {
 
@@ -61,6 +62,8 @@ public class UninstallerApplication extends Application {
 
         mTracker = GoogleAnalytics.getInstance(this).newTracker(R.xml.global_tracker);
 
+        setupFonts();
+
         setupDatabase();
 
         int launchCount = Pref.getPrefInt(getApplicationContext(), Config.PREF_LAUNCH_COUNT);
@@ -69,6 +72,14 @@ public class UninstallerApplication extends Application {
         setupSounds();
 
         setupADs();
+    }
+
+    private void setupFonts() {
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/GenShinGothic-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
     }
 
     public synchronized Tracker getTracker() {
