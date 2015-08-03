@@ -15,8 +15,8 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-def VERSION_CODE = 7
-def VERSION_NAME = "1.6"
+def VERSION_CODE = 8
+def VERSION_NAME = "1.7"
 def PACKAGE_NAME = "sakurafish.com.parrot.uninstaller"
 
 android {
