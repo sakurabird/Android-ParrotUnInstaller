@@ -60,7 +60,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/margin_large"
-            android:src="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"/>
+            android:src="@drawable/ic_more"/>
 
     </RelativeLayout>
 
