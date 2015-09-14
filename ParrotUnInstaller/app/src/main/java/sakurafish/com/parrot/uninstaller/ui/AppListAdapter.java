@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
@@ -19,8 +20,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import greendao.Apps;
-import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.R;
+import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 
@@ -151,9 +152,18 @@ public class AppListAdapter extends ArrayAdapter<Apps> {
             Drawable icon;
             try {
                 icon = mPackageManager.getApplicationIcon(apps.getPackage_name());
-                final Bitmap b = ((BitmapDrawable) icon).getBitmap();
-                holder.iconView.setImageBitmap(b);
-                mLruCache.put(apps.getPackage_name(), b);
+                Bitmap apkIcon;
+                if (icon instanceof BitmapDrawable) {
+                    apkIcon = ((BitmapDrawable) icon).getBitmap();
+                } else {
+                    Bitmap bmp = Bitmap.createBitmap(icon.getIntrinsicWidth(), icon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(bmp);
+                    icon.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                    icon.draw(canvas);
+                    apkIcon = bmp;
+                }
+                holder.iconView.setImageBitmap(apkIcon);
+                mLruCache.put(apps.getPackage_name(), apkIcon);
             } catch (final PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }

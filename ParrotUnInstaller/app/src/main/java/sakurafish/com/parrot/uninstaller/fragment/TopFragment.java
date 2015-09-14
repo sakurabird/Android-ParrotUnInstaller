@@ -251,6 +251,7 @@ public class TopFragment extends BaseAppListFragment {
                 UnInstallerUtils.actionGooglePlay(mContext, apps);
                 break;
             case R.id.action_launch:
+                intent = new Intent();
                 intent = mPackageManager.getLaunchIntentForPackage(apps.getPackage_name());
                 startActivity(intent);
                 break;
