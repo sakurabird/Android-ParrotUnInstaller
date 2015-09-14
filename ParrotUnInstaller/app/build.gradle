@@ -20,12 +20,12 @@ def VERSION_NAME = "1.7"
 def PACKAGE_NAME = "sakurafish.com.parrot.uninstaller"
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 22
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 22
         versionCode VERSION_CODE
         versionName VERSION_NAME
         applicationId PACKAGE_NAME
