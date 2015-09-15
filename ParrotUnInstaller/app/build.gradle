@@ -15,8 +15,8 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-def VERSION_CODE = 8
-def VERSION_NAME = "1.7"
+def VERSION_CODE = 9
+def VERSION_NAME = "1.8"
 def PACKAGE_NAME = "sakurafish.com.parrot.uninstaller"
 
 android {
@@ -29,6 +29,7 @@ android {
         versionCode VERSION_CODE
         versionName VERSION_NAME
         applicationId PACKAGE_NAME
+        manifestPlaceholders = [appName : "@string/app_name"]
     }
 
     buildTypes {
@@ -36,6 +37,7 @@ android {
             debuggable true
             applicationIdSuffix ".debug"
             versionNameSuffix "-DEBUG"
+            manifestPlaceholders = [appName : "@string/app_name_staging"]
         }
         release {
             debuggable false
@@ -55,7 +57,21 @@ android {
 
     dexOptions {
         preDexLibraries = false
-    }}
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -72,4 +88,5 @@ dependencies {
         transitive = true;
     }
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+    compile 'com.facebook.stetho:stetho:1.2.0'
 }

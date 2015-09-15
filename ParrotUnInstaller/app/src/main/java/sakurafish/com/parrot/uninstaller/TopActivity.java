@@ -104,6 +104,7 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
         mSortOrder = UnInstallerUtils.getDefaultSortOrder();
 
         if (Pref.getPrefBool(mContext, Config.PREF_SHOW_STATUS_BAR, false)) {
+            UnInstallerUtils.cancelNotification();
             UnInstallerUtils.setNotification();
         } else {
             UnInstallerUtils.cancelNotification();

@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">インコアンインストーラー</string>
+    <string name="app_name_staging">開発版インコアンインストーラー</string>
+
     <string name="app_title">アンインストーラー</string>
     <string name="app_url">http://play.google.com/store/apps/details?id=sakurafish.com.parrot.uninstaller</string>
     <!-- 共通 -->

@@ -95,7 +95,7 @@ public class UnInstallerUtils {
         final PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         final NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(getNotificationIcon())
                 .setContentTitle(context.getResources().getString(R.string.app_name))
                 .setContentText(context.getString(R.string.launch_app))
                 .setWhen(System.currentTimeMillis())
@@ -105,6 +105,11 @@ public class UnInstallerUtils {
 
         notificationManager.cancel(R.string.app_name);
         notificationManager.notify(R.string.app_name, builder.build());
+    }
+
+    private static int getNotificationIcon() {
+        boolean whiteIcon = (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP);
+        return whiteIcon ? R.drawable.notification_icon : R.drawable.ic_launcher;
     }
 
     /**
