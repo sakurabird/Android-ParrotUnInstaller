@@ -32,6 +32,11 @@ android {
         manifestPlaceholders = [appName : "@string/app_name"]
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
     buildTypes {
         debug {
             debuggable true
