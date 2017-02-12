@@ -1,1 +1,1 @@
-include ':app', ':MyDaoGenerator', ':ViewPagerIndicator'
+include ':app', ':MyDaoGenerator'
