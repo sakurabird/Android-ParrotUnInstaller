@@ -51,3 +51,5 @@ GeneralDialogFragment.java
 GeneralProgressDialog.java
 
 fabric.properties
+keystore.properties
+sakurafish.keystore
