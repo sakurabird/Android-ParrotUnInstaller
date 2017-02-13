@@ -20,6 +20,9 @@ import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import de.greenrobot.dao.query.QueryBuilder;
 import greendao.Apps;
 import greendao.AppsDao;
@@ -43,6 +46,7 @@ public class FavoritesFragment extends BaseAppListFragment {
     private ListView mListView;
     private AppListAdapter mListAdaptor = null;
     private TextView mAppCount;
+    private AdView mAdView;
 
     public static FavoritesFragment getInstance() {
         return new FavoritesFragment();
@@ -179,10 +183,12 @@ public class FavoritesFragment extends BaseAppListFragment {
             }
         });
 
-        // 広告枠の設定
-        RelativeLayout adarea = (RelativeLayout) getView().findViewById(R.id.ad_area);
-        adarea.addView(UninstallerApplication.getAdContext()
-                .createBanner(mContext, getResources().getInteger(R.integer.surupass_bannerId)));
+        // show AD banner
+        mAdView = (AdView) getView().findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
@@ -278,6 +284,22 @@ public class FavoritesFragment extends BaseAppListFragment {
         getAppList(mSortOrder);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+    }
+
     private void finalizeLayout() {
         if (mListView != null) {
             mListView.setOnItemClickListener(null);
@@ -286,6 +308,9 @@ public class FavoritesFragment extends BaseAppListFragment {
         }
         mListAdaptor = null;
         mAppCount = null;
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
     }
 
     @Override

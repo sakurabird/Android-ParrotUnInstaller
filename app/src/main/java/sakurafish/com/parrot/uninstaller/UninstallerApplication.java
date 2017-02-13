@@ -15,7 +15,6 @@ import io.fabric.sdk.android.Fabric;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.utils.SoundManager;
-import tokyo.suru_pass.AdContext;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class UninstallerApplication extends Application {
@@ -24,7 +23,6 @@ public class UninstallerApplication extends Application {
     private static UninstallerApplication application;
     private static SoundManager sSoundManager;
     private static final int[] sSoundIds = new int[4];
-    private static AdContext sAdContext;//suru pass
     private Tracker mTracker;
 
     public UninstallerApplication() {
@@ -52,10 +50,6 @@ public class UninstallerApplication extends Application {
         return sSoundIds;
     }
 
-    public static AdContext getAdContext() {
-        return sAdContext;
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -75,8 +69,6 @@ public class UninstallerApplication extends Application {
         Pref.setPref(getApplicationContext(), Config.PREF_LAUNCH_COUNT, ++launchCount);
 
         setupSounds();
-
-        setupADs();
     }
 
     private void setupFonts() {
@@ -113,13 +105,5 @@ public class UninstallerApplication extends Application {
         sSoundIds[1] = sSoundManager.load(R.raw.inco2);
         sSoundIds[2] = sSoundManager.load(R.raw.inco3);
         sSoundIds[3] = sSoundManager.load(R.raw.inco4);
-    }
-
-    /**
-     * 広告SDKのインスタンスを取得
-     */
-    private void setupADs() {
-        //Suru Pass
-        sAdContext = new AdContext(getContext(), getString(R.string.surupass_mediaId), BuildConfig.DEBUG);
     }
 }

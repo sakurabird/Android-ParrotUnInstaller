@@ -14,6 +14,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import de.greenrobot.dao.query.QueryBuilder;
 import greendao.Apps;
 import greendao.AppsDao;
@@ -38,6 +41,7 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
     private static final int REQUEST_CODE_DELETE = 222;
     private ListView mListView;
     private HistoryListAdapter mListAdaptor = null;
+    private AdView mAdView;
 
     public static HistoryFragment getInstance() {
         return new HistoryFragment();
@@ -137,10 +141,13 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
         });
         mListView.setAdapter(mListAdaptor);
 
-        // 広告枠の設定
-        RelativeLayout adarea = (RelativeLayout) getView().findViewById(R.id.ad_area);
-        adarea.addView(UninstallerApplication.getAdContext()
-                .createBanner(mContext, getResources().getInteger(R.integer.surupass_bannerId)));
+
+        // show AD banner
+        mAdView = (AdView) getView().findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     private void askDelete(@NonNull final View view, @NonNull final Apps apps) {
@@ -180,6 +187,22 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
         return super.onContextItemSelected(item);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+    }
+
     private void finalizeLayout() {
         if (mListView != null) {
             mListView.setOnItemClickListener(null);
@@ -187,6 +210,9 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
             mListView = null;
         }
         mListAdaptor = null;
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
     }
 
     @Override
