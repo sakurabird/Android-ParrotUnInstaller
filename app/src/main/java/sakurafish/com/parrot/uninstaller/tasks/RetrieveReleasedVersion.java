@@ -8,6 +8,7 @@ import org.jsoup.Jsoup;
 import java.io.IOException;
 
 import sakurafish.com.parrot.uninstaller.UninstallerApplication;
+import sakurafish.com.parrot.uninstaller.utils.Utils;
 
 /**
  * Google Playのサイトよりリリースされているアプリのバージョンを取得する
@@ -29,15 +30,17 @@ public class RetrieveReleasedVersion extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(final Void... params) {
         String new_version;
+        mPackageName = "sakurafish.com.parrot.uninstaller";
         try {
             new_version = Jsoup.connect("https://play.google.com/store/apps/details?id=" + mPackageName)
                     .timeout(30000)
-                    .userAgent("Mozilla/5.0 (Linux; U; Android 4.0.1; ja-jp; Galaxy Nexus Build/ITL41D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
+                    .userAgent("Mozilla") //http://stackoverflow.com/a/36780250/2845202
                     .referrer("http://www.google.com")
                     .get()
                     .select("div[itemprop=softwareVersion]")
                     .first()
                     .ownText();
+            Utils.logDebug("new_version:" + new_version);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
