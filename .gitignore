@@ -45,6 +45,7 @@ build/
 *.swp
 
 # ParrotUnInstaller
+google-services.json
 consts.xml
 global_tracker.xml
 GeneralDialogFragment.java

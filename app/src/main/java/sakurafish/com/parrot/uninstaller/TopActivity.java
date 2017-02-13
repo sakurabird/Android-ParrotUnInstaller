@@ -100,6 +100,12 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
         });
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        UnInstallerUtils.sendScreenToGA("TOP");
+    }
+
     private void init() {
         mSortOrder = UnInstallerUtils.getDefaultSortOrder();
 
