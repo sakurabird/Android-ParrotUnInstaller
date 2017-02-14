@@ -102,6 +102,7 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.facebook.stetho:stetho:1.2.0'
     compile 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
+    compile 'com.afollestad.material-dialogs:core:0.9.3.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

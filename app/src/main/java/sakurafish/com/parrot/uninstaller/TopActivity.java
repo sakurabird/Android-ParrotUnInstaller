@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,6 +19,10 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.config.Config.NavMenu;
@@ -30,7 +34,6 @@ import sakurafish.com.parrot.uninstaller.fragment.TopFragment;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.pref.PrefsFragment;
 import sakurafish.com.parrot.uninstaller.tasks.RetrieveReleasedVersion;
-import sakurafish.com.parrot.uninstaller.ui.GeneralDialogFragment;
 import sakurafish.com.parrot.uninstaller.ui.NavExpandableAdapter;
 import sakurafish.com.parrot.uninstaller.utils.ThemeUtils;
 import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
@@ -38,10 +41,8 @@ import sakurafish.com.parrot.uninstaller.utils.Utils;
 import sakurafish.com.parrot.uninstaller.web.WebFragment;
 
 
-public class TopActivity extends ActionBarActivity implements GeneralDialogFragment.Callbacks {
+public class TopActivity extends ActionBarActivity {
 
-    private static final int REQUEST_CODE_REVIEW = 112;
-    private static final int REQUEST_CODE_UPDATE = 113;
     protected SortOrder mSortOrder = SortOrder.NAME_ASC;
     private Context mContext;
     private Fragment mContent;
@@ -139,38 +140,39 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
 
     private void pleaseReview() {
         //10回めの起動でレビュー誘導
-        final GeneralDialogFragment.Builder builder = new GeneralDialogFragment.Builder();
-        builder.setTitle(getString(R.string.ask_review_title));
-        builder.setMessage(getString(R.string.ask_review_message));
-        builder.setCancelable(true);
-        builder.setPositiveText(getString(android.R.string.ok));
-        builder.setNegativeText(getString(android.R.string.cancel));
-        final Bundle bundle = new Bundle();
-        bundle.putInt("REQUEST_CODE_REVIEW", REQUEST_CODE_REVIEW);
-        builder.setParams(bundle);
-        builder.setTargetFragment(getFragmentManager().findFragmentById(R.id.content_frame),
-                REQUEST_CODE_REVIEW);
-        GeneralDialogFragment fragment = builder.create();
-        fragment.show(getFragmentManager(), "GeneralDialogFragment");
-
+        new MaterialDialog.Builder(this)
+                .theme(Theme.LIGHT)
+                .title(getString(R.string.ask_review_title))
+                .content(getString(R.string.ask_review_message))
+                .positiveText(getString(android.R.string.ok))
+                .negativeText(getString(android.R.string.cancel))
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // Google Play
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_url))));
+                    }
+                })
+                .show();
         Pref.setPref(mContext, Config.PREF_ASK_REVIEW, true);
     }
 
     private void pleaseUpdate() {
         //アップデートへ誘導する
-        final GeneralDialogFragment.Builder builder = new GeneralDialogFragment.Builder();
-        builder.setTitle(getString(R.string.ask_update_title));
-        builder.setMessage(getString(R.string.ask_update_message));
-        builder.setCancelable(true);
-        builder.setPositiveText(getString(android.R.string.ok));
-        builder.setNegativeText(getString(android.R.string.cancel));
-        final Bundle bundle = new Bundle();
-        bundle.putInt("REQUEST_CODE_UPDATE", REQUEST_CODE_UPDATE);
-        builder.setParams(bundle);
-        builder.setTargetFragment(getFragmentManager().findFragmentById(R.id.content_frame),
-                REQUEST_CODE_UPDATE);
-        GeneralDialogFragment fragment = builder.create();
-        fragment.show(getFragmentManager(), "GeneralDialogFragment");
+        new MaterialDialog.Builder(this)
+                .theme(Theme.LIGHT)
+                .title(getString(R.string.ask_update_title))
+                .content(getString(R.string.ask_update_message))
+                .positiveText(getString(android.R.string.ok))
+                .negativeText(getString(android.R.string.cancel))
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // Google Play
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_url))));
+                    }
+                })
+                .show();
     }
 
     @Override
@@ -459,31 +461,5 @@ public class TopActivity extends ActionBarActivity implements GeneralDialogFragm
         finalizeLayout();
         mContent = null;
         mContext = null;
-    }
-
-    @Override
-    public void onDialogClicked(final String tag, final Bundle args, final int which, final boolean isChecked) {
-        int reqCode = 999;
-        if (args != null) {
-            reqCode = args.getInt("REQUEST_CODE_REVIEW", 999);
-            if (reqCode == 999) {
-                reqCode = args.getInt("REQUEST_CODE_UPDATE", 999);
-            }
-        }
-
-        if (which == DialogInterface.BUTTON_POSITIVE) {
-            switch (reqCode) {
-                case REQUEST_CODE_REVIEW:
-                case REQUEST_CODE_UPDATE:
-                    // Google Playに移動
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_url))));
-                    break;
-            }
-        }
-    }
-
-    @Override
-    public void onDialogCancelled(final String tag, final Bundle args) {
-
     }
 }

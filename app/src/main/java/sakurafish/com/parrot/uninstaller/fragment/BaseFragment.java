@@ -1,31 +1,20 @@
 package sakurafish.com.parrot.uninstaller.fragment;
 
-import android.app.DialogFragment;
 import android.app.Fragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import sakurafish.com.parrot.uninstaller.R;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
+
 import sakurafish.com.parrot.uninstaller.TopActivity;
 import sakurafish.com.parrot.uninstaller.config.Config;
-import sakurafish.com.parrot.uninstaller.ui.GeneralDialogFragment;
 
 public class BaseFragment extends Fragment {
 
-    protected static final String DIALOG_CONNECTING = "connecting_fragment";
-    private final static int REQUEST_DIALOG_ERROR = 999;
     // 通信失敗時にエラーダイアログを表示する.
     protected boolean mShowErrorDialog = true;
-    private GeneralDialogFragment mDialogFragment;
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        dismissConnectingDialog();
-        mDialogFragment = null;
-    }
-
 
     protected void switchFragment(@NonNull final Fragment fragment, @NonNull final String backStack) {
         if (getActivity() == null) {
@@ -67,28 +56,11 @@ public class BaseFragment extends Fragment {
         if (TextUtils.isEmpty(title)) {
             title = "エラーが発生しました";
         }
-        GeneralDialogFragment.Builder builder = new GeneralDialogFragment.Builder();
-        builder.setIcon(R.drawable.ic_launcher);
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.setPositiveText("OK");
-        builder.setTargetFragment(this, REQUEST_DIALOG_ERROR);
-        builder.create().show(getFragmentManager(), tag);
-    }
-
-    protected void dismissConnectingDialog() {
-        if (mDialogFragment != null) {
-            mDialogFragment.dismiss();
-            mDialogFragment = null;
-        } else {
-            if (getFragmentManager() != null) {
-                Fragment fragment = getFragmentManager().findFragmentByTag(
-                        DIALOG_CONNECTING);
-                if (fragment instanceof DialogFragment) {
-                    DialogFragment dialog = (DialogFragment) fragment;
-                    dialog.onDismiss(null);
-                }
-            }
-        }
+        new MaterialDialog.Builder(getActivity())
+                .theme(Theme.LIGHT)
+                .title(title)
+                .content(message)
+                .positiveText(getString(android.R.string.ok))
+                .show();
     }
 }

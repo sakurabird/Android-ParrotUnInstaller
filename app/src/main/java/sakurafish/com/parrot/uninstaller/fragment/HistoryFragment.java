@@ -2,7 +2,6 @@ package sakurafish.com.parrot.uninstaller.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.ContextMenu;
@@ -14,6 +13,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -27,7 +29,6 @@ import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.config.SectionCodes.SortOrder;
 import sakurafish.com.parrot.uninstaller.pref.Pref;
 import sakurafish.com.parrot.uninstaller.ui.AppItemClickListener;
-import sakurafish.com.parrot.uninstaller.ui.GeneralDialogFragment;
 import sakurafish.com.parrot.uninstaller.ui.HistoryListAdapter;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
 import sakurafish.com.parrot.uninstaller.utils.ThemeUtils;
@@ -37,8 +38,7 @@ import sakurafish.com.parrot.uninstaller.utils.Utils;
 /**
  * Created by sakura on 2014/10/09.
  */
-public class HistoryFragment extends BaseAppListFragment implements GeneralDialogFragment.Callbacks {
-    private static final int REQUEST_CODE_DELETE = 222;
+public class HistoryFragment extends BaseAppListFragment  {
     private ListView mListView;
     private HistoryListAdapter mListAdaptor = null;
     private AdView mAdView;
@@ -155,20 +155,24 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
         if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
             UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[2]);
         }
-        GeneralDialogFragment.Builder builder = new GeneralDialogFragment.Builder();
-        builder.setTitle(apps.getName());
-        builder.setMessage(getString(R.string.history_confirm));
-        builder.setCancelable(true);
-        builder.setPositiveText(getString(R.string.delete));
-        builder.setNegativeText(getString(android.R.string.cancel));
-        Bundle bundle = new Bundle();
-        bundle.putInt("REQUEST_CODE_DELETE", REQUEST_CODE_DELETE);
-        bundle.putSerializable("Apps", apps);
-        builder.setParams(bundle);
-        builder.setTargetFragment(getFragmentManager().findFragmentById(R.id.content_frame),
-                REQUEST_CODE_DELETE);
-        GeneralDialogFragment fragment = builder.create();
-        fragment.show(getFragmentManager(), "GeneralDialogFragment");
+        new MaterialDialog.Builder(mContext)
+                .theme(Theme.LIGHT)
+                .title(apps.getName())
+                .content(getString(R.string.history_confirm))
+                .positiveText(getString(R.string.delete))
+                .negativeText(getString(android.R.string.cancel))
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
+                            UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[0]);
+                        }
+                        AppsTableAccessHelper.deleteCompleteAppsRecord(apps);
+                        Utils.showToast((Activity) mContext, mContext.getString(R.string.delete_history_completed));
+                        getAppList(mSortOrder);
+                    }
+                })
+                .show();
     }
 
     @Override
@@ -220,30 +224,5 @@ public class HistoryFragment extends BaseAppListFragment implements GeneralDialo
         super.onDestroy();
 
         finalizeLayout();
-    }
-
-    @Override
-    public void onDialogClicked(final String tag, final Bundle args, final int which, final boolean isChecked) {
-        int reqCode = 999;
-        if (args != null) {
-            reqCode = args.getInt("REQUEST_CODE_DELETE", 999);
-        }
-
-        if (which == DialogInterface.BUTTON_POSITIVE) {
-            if (reqCode == REQUEST_CODE_DELETE) {
-                // 削除処理
-                if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
-                    UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[0]);
-                }
-                Apps apps = (Apps) args.getSerializable("Apps");
-                AppsTableAccessHelper.deleteCompleteAppsRecord(apps);
-                Utils.showToast((Activity) mContext, mContext.getString(R.string.delete_history_completed));
-                getAppList(mSortOrder);
-            }
-        }
-    }
-
-    @Override
-    public void onDialogCancelled(final String tag, final Bundle args) {
     }
 }

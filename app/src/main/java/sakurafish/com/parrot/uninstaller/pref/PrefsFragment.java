@@ -2,13 +2,17 @@ package sakurafish.com.parrot.uninstaller.pref;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.support.annotation.NonNull;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 
 import de.greenrobot.event.EventBus;
 import sakurafish.com.parrot.uninstaller.R;
@@ -17,7 +21,6 @@ import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.config.Config;
 import sakurafish.com.parrot.uninstaller.events.DataChangedEvent;
 import sakurafish.com.parrot.uninstaller.tasks.CreateAppTable;
-import sakurafish.com.parrot.uninstaller.ui.GeneralDialogFragment;
 import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
 import sakurafish.com.parrot.uninstaller.utils.ThemeUtils;
 import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
@@ -29,8 +32,7 @@ import sakurafish.com.parrot.uninstaller.web.WebFragment;
  * Created by sakura on 2014/10/24.
  */
 public class PrefsFragment extends PreferenceFragment
-        implements SharedPreferences.OnSharedPreferenceChangeListener, GeneralDialogFragment.Callbacks {
-    private static final int REQUEST_CODE_REFRESH = 111;
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Context mContext;
 
@@ -63,19 +65,20 @@ public class PrefsFragment extends PreferenceFragment
                 if (Pref.getPrefBool(mContext, Config.PREF_SOUND_ON, false)) {
                     UninstallerApplication.getSoundManager().play(UninstallerApplication.getSoundIds()[2]);
                 }
-                GeneralDialogFragment.Builder builder = new GeneralDialogFragment.Builder();
-                builder.setTitle(getString(R.string.setting_refresh));
-                builder.setMessage(getString(R.string.setting_refresh_confirm));
-                builder.setCancelable(true);
-                builder.setPositiveText(getString(R.string.execute));
-                builder.setNegativeText(getString(android.R.string.cancel));
-                Bundle bundle = new Bundle();
-                bundle.putInt("REQUEST_CODE_REFRESH", REQUEST_CODE_REFRESH);
-                builder.setParams(bundle);
-                builder.setTargetFragment(getFragmentManager().findFragmentById(R.id.content_frame),
-                        REQUEST_CODE_REFRESH);
-                GeneralDialogFragment fragment = builder.create();
-                fragment.show(getFragmentManager(), "GeneralDialogFragment");
+                new MaterialDialog.Builder(mContext)
+                        .theme(Theme.LIGHT)
+                        .title(getString(R.string.setting_refresh))
+                        .content(getString(R.string.setting_refresh_confirm))
+                        .positiveText(getString(R.string.execute))
+                        .negativeText(getString(android.R.string.cancel))
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                // アプリ一覧リセット処理
+                                refreshAppList();
+                            }
+                        })
+                        .show();
 
                 return false;
             }
@@ -100,7 +103,7 @@ public class PrefsFragment extends PreferenceFragment
             public boolean onPreferenceClick(Preference preference) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                intent.putExtra(Intent.EXTRA_EMAIL,  new String[] { "sakurafish1@gmail.com" });
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"sakurafish1@gmail.com"});
                 intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.setting_mail_to_dev2));
                 intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.setting_mail_to_dev3));
                 if (intent.resolveActivity(mContext.getPackageManager()) != null) {
@@ -157,25 +160,5 @@ public class PrefsFragment extends PreferenceFragment
                 Utils.showToast((Activity) mContext, getString(R.string.setting_refresh_completed));
             }
         }).execute();
-    }
-
-    @Override
-    public void onDialogClicked(final String tag, final Bundle args, final int which, final boolean isChecked) {
-        int reqCode = 999;
-        if (args != null) {
-            reqCode = args.getInt("REQUEST_CODE_REFRESH", 999);
-        }
-
-        if (which == DialogInterface.BUTTON_POSITIVE) {
-            if (reqCode == REQUEST_CODE_REFRESH) {
-                // アプリ一覧リセット処理
-                refreshAppList();
-            }
-        }
-    }
-
-    @Override
-    public void onDialogCancelled(final String tag, final Bundle args) {
-
     }
 }
