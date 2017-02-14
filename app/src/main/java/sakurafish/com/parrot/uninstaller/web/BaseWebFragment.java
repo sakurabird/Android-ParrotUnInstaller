@@ -153,10 +153,6 @@ public class BaseWebFragment extends BaseFragment {
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (!Utils.isConnected()) {
-            showNetworkErrorDialog();
-        }
         initLayout(savedInstanceState);
     }
 

@@ -25,8 +25,8 @@ import sakurafish.com.parrot.uninstaller.utils.AppsTableAccessHelper;
 import sakurafish.com.parrot.uninstaller.utils.ThemeUtils;
 import sakurafish.com.parrot.uninstaller.utils.UnInstallerUtils;
 import sakurafish.com.parrot.uninstaller.utils.Utils;
+import sakurafish.com.parrot.uninstaller.web.LocalWebFragment;
 import sakurafish.com.parrot.uninstaller.web.WebConsts;
-import sakurafish.com.parrot.uninstaller.web.WebFragment;
 
 /**
  * Created by sakura on 2014/10/24.
@@ -90,8 +90,8 @@ public class PrefsFragment extends PreferenceFragment
             public boolean onPreferenceClick(Preference preference) {
                 if (mContext instanceof TopActivity) {
                     TopActivity a = (TopActivity) mContext;
-                    a.switchContent(WebFragment.getInstance(WebConsts.LOCAL_CREDIT,
-                            getString(R.string.setting_credit)), "WebFragment");
+                    a.switchContent(LocalWebFragment.getInstance(WebConsts.LOCAL_CREDIT,
+                            getString(R.string.setting_credit)), "LocalWebFragment");
                 }
                 return false;
             }
