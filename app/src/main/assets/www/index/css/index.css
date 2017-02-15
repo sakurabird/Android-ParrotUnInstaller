@@ -12,6 +12,13 @@ others
 .disc h3{
 	text-decoration: underline;
 }
+.disc h3{
+	text-decoration: underline;
+}
+.disc DL{
+	font-size: 93%;
+	line-height: 1.8em;
+}
 .contactTxt{
 	font-size: 93%;
 	line-height: 1.8em;
@@ -19,4 +26,8 @@ others
 .contactTxt a{
 	color:#1111cc;
 	text-decoration: underline;
+}
+p.right {
+	text-align: right;
+	margin-bottom: 10px;
 }
