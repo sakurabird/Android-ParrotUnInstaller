@@ -45,6 +45,9 @@
         <item>青</item>
         <item>茶色</item>
         <item>紫</item>
+        <item>Teal</item>
+        <item>Orange</item>
+        <item>Light Blue</item>
     </string-array>
 
 </resources>

@@ -39,6 +39,15 @@ public class ThemeUtils {
             case ThemeColor.PURPLE:
                 activity.setTheme(R.style.MyTheme_Purple);
                 break;
+            case ThemeColor.TEAL:
+                activity.setTheme(R.style.MyTheme_Teal);
+                break;
+            case ThemeColor.ORANGE:
+                activity.setTheme(R.style.MyTheme_Orange);
+                break;
+            case ThemeColor.LIGHT_BLUE:
+                activity.setTheme(R.style.MyTheme_Light_BLUE);
+                break;
             default:
                 activity.setTheme(R.style.MyTheme_Green);
                 break;
@@ -75,6 +84,18 @@ public class ThemeUtils {
                 view.setBackgroundColor(isChild ? context.getResources().getColor(R.color.nav_background_child_purple) :
                         context.getResources().getColor(R.color.nav_background_purple));
                 break;
+            case ThemeColor.TEAL:
+                view.setBackgroundColor(isChild ? context.getResources().getColor(R.color.nav_background_child_teal) :
+                        context.getResources().getColor(R.color.nav_background_teal));
+                break;
+            case ThemeColor.ORANGE:
+                view.setBackgroundColor(isChild ? context.getResources().getColor(R.color.nav_background_child_orange) :
+                        context.getResources().getColor(R.color.nav_background_orange));
+                break;
+            case ThemeColor.LIGHT_BLUE:
+                view.setBackgroundColor(isChild ? context.getResources().getColor(R.color.nav_background_child_light_blue) :
+                        context.getResources().getColor(R.color.nav_background_light_blue));
+                break;
             default:
                 view.setBackgroundColor(isChild ? context.getResources().getColor(R.color.nav_background_child_green) :
                         context.getResources().getColor(R.color.nav_background_green));
@@ -102,6 +123,15 @@ public class ThemeUtils {
             case ThemeColor.PURPLE:
                 view.setBackgroundColor(context.getResources().getColor(R.color.list_background_purple));
                 break;
+            case ThemeColor.TEAL:
+                view.setBackgroundColor(context.getResources().getColor(R.color.list_background_teal));
+                break;
+            case ThemeColor.ORANGE:
+                view.setBackgroundColor(context.getResources().getColor(R.color.list_background_orange));
+                break;
+            case ThemeColor.LIGHT_BLUE:
+                view.setBackgroundColor(context.getResources().getColor(R.color.list_background_light_blue));
+                break;
             default:
                 view.setBackgroundColor(context.getResources().getColor(R.color.list_background_green));
                 break;
@@ -127,6 +157,15 @@ public class ThemeUtils {
                 break;
             case ThemeColor.PURPLE:
                 view.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary_purple));
+                break;
+            case ThemeColor.TEAL:
+                view.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary_teal));
+                break;
+            case ThemeColor.ORANGE:
+                view.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary_orange));
+                break;
+            case ThemeColor.LIGHT_BLUE:
+                view.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary_light_blue));
                 break;
             default:
                 view.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary_green));

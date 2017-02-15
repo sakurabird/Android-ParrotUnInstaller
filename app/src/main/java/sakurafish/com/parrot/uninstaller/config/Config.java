@@ -61,5 +61,8 @@ public class Config {
         public static final int BLUE = 3;
         public static final int BROWN = 4;
         public static final int PURPLE = 5;
+        public static final int TEAL = 6;
+        public static final int ORANGE = 7;
+        public static final int LIGHT_BLUE = 8;
     }
 }

@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar" />
     <!-- Application theme. -->
     <style name="AppTheme" parent="BaseTheme">
         <item name="android:windowActionBarOverlay">true</item>
@@ -34,6 +34,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_green</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Green</item>
     </style>
+
     <style name="PopupMenu.Green" parent="@android:style/Widget.PopupMenu">
         <item name="android:popupBackground">@color/colorPrimaryDark_green</item>
     </style>
@@ -44,6 +45,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_pink</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Pink</item>
     </style>
+
     <style name="PopupMenu.Pink" parent="@android:style/Widget.PopupMenu">
         <item name="android:popupBackground">@color/colorPrimaryDark_pink</item>
     </style>
@@ -54,6 +56,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_blue</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Blue</item>
     </style>
+
     <style name="PopupMenu.Blue" parent="@android:style/Widget.PopupMenu">
         <item name="android:popupBackground">@color/colorPrimaryDark_blue</item>
     </style>
@@ -64,6 +67,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_brown</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Brown</item>
     </style>
+
     <style name="PopupMenu.Brown" parent="@android:style/Widget.PopupMenu">
         <item name="android:popupBackground">@color/colorPrimaryDark_brown</item>
     </style>
@@ -74,8 +78,42 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_purple</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Purple</item>
     </style>
+
     <style name="PopupMenu.Purple" parent="@android:style/Widget.PopupMenu">
         <item name="android:popupBackground">@color/colorPrimaryDark_purple</item>
+    </style>
+
+    <!-- Teal Theme -->
+    <style name="MyTheme.Teal" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_teal</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_teal</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Teal</item>
+    </style>
+
+    <style name="PopupMenu.Teal" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_teal</item>
+    </style>
+
+    <!-- Orange Theme -->
+    <style name="MyTheme.Orange" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_orange</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_orange</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Orange</item>
+    </style>
+
+    <style name="PopupMenu.Orange" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_orange</item>
+    </style>
+
+    <!-- Light Blue Theme -->
+    <style name="MyTheme.Light_BLUE" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_light_blue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_light_blue</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Light_BLUE</item>
+    </style>
+
+    <style name="PopupMenu.Light_BLUE" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimaryDark_light_blue</item>
     </style>
 
 </resources>
