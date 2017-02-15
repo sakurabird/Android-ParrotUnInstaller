@@ -53,5 +53,8 @@
         <sakurafish.com.parrot.uninstaller.pref.PrefMailToDev
             android:key="PREF_MAIL_TO_DEV"
             android:layout="@layout/row_preference" />
+        <sakurafish.com.parrot.uninstaller.pref.PrefPrivacyPolicy
+            android:key="PREF_PRIVACY_POLICY"
+            android:layout="@layout/row_preference" />
     </PreferenceCategory>
 </PreferenceScreen>

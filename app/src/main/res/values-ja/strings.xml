@@ -45,6 +45,7 @@
     <string name="setting_mail_to_dev2">【インコアンインストーラー】ご意見・ご要望</string>
     <string name="setting_mail_to_dev3">ユーザー様のメールアドレスはこの連絡以外に使用することは一切ありません。</string>
     <string name="setting_sort_order">デフォルトの並び替え順</string>
+    <string name="setting_privacy_policy">プライバシーポリシー</string>
     <!-- tutorial -->
     <string name="tutorial_title1">インコアンインストーラーにようこそ！</string>
     <string name="tutorial_text1">使い方はとっても簡単</string>

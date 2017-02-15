@@ -16,6 +16,7 @@ public class Config {
     public static final String PREF_CREDIT = "PREF_CREDIT";
     public static final String PREF_MAIL_TO_DEV = "PREF_MAIL_TO_DEV";
     public static final String PREF_SORT_ORDER = "PREF_SORT_ORDER";
+    public static final String PREF_PRIVACY_POLICY = "PREF_PRIVACY_POLICY";
 
     //    Tag string
     public static final String TAG_ERROR = "TAG_ERROR";

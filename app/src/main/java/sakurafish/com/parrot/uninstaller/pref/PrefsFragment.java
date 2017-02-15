@@ -112,6 +112,19 @@ public class PrefsFragment extends PreferenceFragment
                 return false;
             }
         });
+
+        Preference policy = findPreference(Config.PREF_PRIVACY_POLICY);
+        policy.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                if (mContext instanceof TopActivity) {
+                    TopActivity a = (TopActivity) mContext;
+                    a.switchContent(LocalWebFragment.getInstance(WebConsts.LOCAL_PRIVACY_POLICY,
+                            getString(R.string.setting_privacy_policy)), "LocalWebFragment");
+                }
+                return false;
+            }
+        });
     }
 
     @Override
