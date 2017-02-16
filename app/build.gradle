@@ -105,4 +105,20 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.9.3.0'
 }
 
+def toApkFile(originalFile) {
+    def namePrefix = "ParrotUnInstaller"
+    def name = originalFile.name.replace(project.name,
+            namePrefix + "-v" + android.defaultConfig.versionName)
+    return new File(originalFile.parentFile, name)
+}
+
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        output.outputFile = toApkFile(output.outputFile)
+        if (output.packageApplication.outputFile != output.outputFile) {
+            output.packageApplication.outputFile = toApkFile(output.packageApplication.outputFile)
+        }
+    }
+}
+
 apply plugin: 'com.google.gms.google-services'
