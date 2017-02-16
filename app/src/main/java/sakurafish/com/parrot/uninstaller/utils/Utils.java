@@ -34,9 +34,9 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.util.Calendar;
 
-import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 import sakurafish.com.parrot.uninstaller.BuildConfig;
 import sakurafish.com.parrot.uninstaller.R;
+import sakurafish.com.parrot.uninstaller.UninstallerApplication;
 
 public class Utils {
 
@@ -175,6 +175,10 @@ public class Utils {
         try {
             info = manager.getPackageInfo(context.getPackageName(), 0);
             version = info.versionName;
+            // for debug
+            if (version.contains("-DEBUG")) {
+                version = version.replace("-DEBUG", "");
+            }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return null;
