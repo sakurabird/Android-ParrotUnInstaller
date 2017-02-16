@@ -11,8 +11,8 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
-def VERSION_CODE = 9
-def VERSION_NAME = "1.8"
+def VERSION_CODE = 10
+def VERSION_NAME = "2.0"
 def PACKAGE_NAME = "sakurafish.com.parrot.uninstaller"
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
